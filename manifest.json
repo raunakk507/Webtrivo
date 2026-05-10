@@ -1,0 +1,21 @@
+{
+  "name": "WEBTRIVO",
+  "short_name": "Webtrivo",
+  "description": "High-performance web development and custom e-commerce engineering studio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "assets/img/brand-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/brand-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
