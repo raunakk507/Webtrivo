@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Contact Us | WEBTRIVO Mobile</title>
+    <meta name="description" content="Get in touch with Webtrivo. Send us a message or contact us on WhatsApp/Email for a premium website build.">
+    <link rel="canonical" href="https://webtrivo.in/mobile-contact.html">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Desktop Redirect Router -->
+    <script>
+        (function() {
+            function checkViewport() {
+                if (window.innerWidth >= 768) {
+                    window.location.replace("index.html#contact");
+                }
+            }
+            checkViewport();
+            window.addEventListener('resize', checkViewport);
+        })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- Ambient Blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- DASH HEADER -->
+<header class="dash-header">
+    <a href="mobile.html" class="dash-brand">
+        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <span>WEBTRIVO</span>
+    </a>
+    <div class="dash-header-right">
+        <a href="mobile-contact.html" class="dash-icon-btn" aria-label="Contact">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+    </div>
+</header>
+
+<!-- FULL-SCREEN GLASS MENU DRAWER -->
+<div class="menu-drawer" id="menuDrawer">
+    <button class="menu-close-btn" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+    <a href="mobile.html"          class="menu-link">Home</a>
+    <a href="mobile-services.html" class="menu-link">Services</a>
+    <a href="mobile-work.html"     class="menu-link">Our Work</a>
+    <a href="mobile-pricing.html"  class="menu-link">Pricing</a>
+    <a href="mobile-contact.html"  class="menu-link">Contact</a>
+</div>
+
+<!-- CONTACT -->
+<section class="m-sec" id="contact" style="padding-top: 80px;">
+    <span class="sec-eyebrow">Let's Collaborate</span>
+    <h2 class="sec-title reveal">Start Your <span class="hl">Project</span></h2>
+    <p class="sec-desc reveal">Fill in your brief and we'll respond within 24 hours.</p>
+
+    <!-- Info Cards -->
+    <div class="reveal">
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-txt"><small>Headquarters</small><span>Patna, Bihar, India</span></div>
+        </div>
+        <div class="contact-row">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-txt"><small>Official Email</small><span>webtrivo@gmail.com</span></div>
+        </div>
+        <div class="contact-row" style="margin-bottom:22px;">
+            <div class="contact-icon" style="background:rgba(37,211,102,0.1); color:#25d366;">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="contact-txt">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <small style="color:#25d366; margin:0;">Priority WhatsApp</small>
+                    <span class="status-ping" style="margin:0;"><span class="ping-dot"></span> Online</span>
+                </div>
+                <span>+91 9229840686</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="clay reveal d1">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="f1136350-912e-4e6d-98c6-513c4587b31d">
+            <input type="hidden" name="subject" value="New Mobile Project Inquiry — Webtrivo">
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div class="f-group" style="margin-bottom:0;">
+                    <label class="f-label">Full Name</label>
+                    <input type="text" name="name" class="f-input" placeholder="Your name" required>
+                </div>
+                <div class="f-group" style="margin-bottom:0;">
+                    <label class="f-label">Company</label>
+                    <input type="text" name="company" class="f-input" placeholder="Brand name">
+                </div>
+            </div>
+
+            <div class="f-group" style="margin-top:14px;">
+                <label class="f-label">Email Address</label>
+                <input type="email" name="email" class="f-input" placeholder="official@company.com" required>
+            </div>
+
+            <div class="f-group">
+                <label class="f-label">Phone Number</label>
+                <input type="tel" name="phone" class="f-input" placeholder="+91 00000 00000" required>
+            </div>
+
+            <div class="f-group">
+                <label class="f-label">Deployment Tier</label>
+                <select name="tier" class="f-input">
+                    <option>Growth Engine (Starter Web)</option>
+                    <option>Shopify Pro Storefront</option>
+                    <option>Full Stack Custom App</option>
+                    <option>Strategic Agency Retainer</option>
+                </select>
+            </div>
+
+            <div class="f-group">
+                <label class="f-label">Project Scope</label>
+                <textarea name="message" class="f-input" rows="3" placeholder="Briefly describe your project needs..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-blue" style="margin-top:4px;">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </div>
+
+    <!-- WHAT HAPPENS NEXT? ONBOARDING -->
+    <div class="reveal d1" style="margin-top:28px; margin-bottom:28px;">
+        <span class="sec-eyebrow">Clear Process</span>
+        <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:6px; font-family:'Poppins',sans-serif; font-weight:600;">What Happens Next?</h3>
+        <p style="font-size:0.78rem; color:var(--muted); line-height:1.5;">We respect your time. Here is our ultra-fast customer onboarding sequence:</p>
+        
+        <div class="onboard-timeline">
+            <!-- Step 1 -->
+            <div class="onboard-step completed">
+                <div class="onboard-dot"></div>
+                <div class="onboard-content">
+                    <h4>Step 1: Brief Submitted</h4>
+                    <p>Your inquiry is instantly routed to our core development channels. We review your requirements within 15 minutes.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="onboard-step">
+                <div class="onboard-dot"></div>
+                <div class="onboard-content">
+                    <h4>Step 2: Priority Contact</h4>
+                    <p>We establish a direct, private WhatsApp group workspace with our engineers to align on strategic scope.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="onboard-step">
+                <div class="onboard-dot"></div>
+                <div class="onboard-content">
+                    <h4>Step 3: Concepts & Figma Rendering</h4>
+                    <p>Before any commitment, we present visual Figma conceptual layouts showing your exact custom styling direction.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- TRUST FAQ DROP-DOWNS -->
+    <div class="reveal d2" style="margin-top:28px; margin-bottom:28px;">
+        <span class="sec-eyebrow">Immediate Answers</span>
+        <h3 style="font-size:1.15rem; color:var(--navy); margin-bottom:6px; font-family:'Poppins',sans-serif; font-weight:600;">Onboarding FAQs</h3>
+        
+        <div class="contact-faq">
+            <!-- FAQ 1 -->
+            <div class="contact-faq-item">
+                <button class="contact-faq-btn" onclick="toggleContactFaq(this)">
+                    Do you sign NDAs before discussing custom project ideas?
+                    <span class="faq-chevron" style="transition: transform 0.3s;"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="contact-faq-body">
+                    <div class="contact-faq-body-inner">Yes, absolutely. We hold all client concept ideas, proprietary APIs, and scaling targets under strict confidentiality before, during, and after development.</div>
+                </div>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="contact-faq-item">
+                <button class="contact-faq-btn" onclick="toggleContactFaq(this)">
+                    What is Webtrivo's standard payment structure?
+                    <span class="faq-chevron" style="transition: transform 0.3s;"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="contact-faq-body">
+                    <div class="contact-faq-body-inner">We work on a transparent, milestone-based 50/50 model: 50% base setup deposit to start, and 50% only when the visual project is approved and ready for live server hand-off.</div>
+                </div>
+            </div>
+            
+            <!-- FAQ 3 -->
+            <div class="contact-faq-item">
+                <button class="contact-faq-btn" onclick="toggleContactFaq(this)">
+                    What happens if I need changes after launching?
+                    <span class="faq-chevron" style="transition: transform 0.3s;"><i class="fa-solid fa-chevron-down"></i></span>
+                </button>
+                <div class="contact-faq-body">
+                    <div class="contact-faq-body-inner">All packages include a lifetime warranty against developer code errors, alongside active serverless setup support to handle ongoing server handshakes safely.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Social Buttons -->
+    <div class="social-row reveal d2">
+        <a href="https://wa.me/919229840686" target="_blank" class="soc-btn" style="color:#25d366; border-color:rgba(37,211,102,0.25);">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/webtrivo.in" target="_blank" class="soc-btn" style="color:#e4405f; border-color:rgba(228,64,95,0.25);">
+            <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/webtrivo-in-bb3018407" target="_blank" class="soc-btn" style="color:#0077b5; border-color:rgba(0,119,181,0.25);">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="m-sec" style="padding-top:8px; padding-bottom:16px;">
+    <div class="disclaimer reveal">
+        <h5><i class="fa-solid fa-scale-balanced"></i> Strategic Disclosures</h5>
+        <p><strong>Intellectual Property:</strong> All project showcases, logos, and brand names belong to their respective owners. WEBTRIVO claims credit for digital engineering, design, and execution only.</p>
+        <p><strong>Service Delivery:</strong> "48h Execution" and ROI metrics are based on standard project scopes. Actual timelines vary by complexity.</p>
+        <p><strong>Confidentiality:</strong> WEBTRIVO operates under strict NDAs for all D2C and agency partnerships.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mobile-footer">
+    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <h3>WEBTRIVO</h3>
+    <p>Building digital empires through world-class design, rendering, and engineering.</p>
+    <div class="footer-socials">
+        <a href="https://wa.me/919229840686"                                 target="_blank"><i class="fa-brands fa-whatsapp"  style="color:#25d366;"></i></a>
+        <a href="https://www.instagram.com/webtrivo.in"                      target="_blank"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i></a>
+        <a href="https://www.linkedin.com/in/webtrivo-in-bb3018407"          target="_blank"><i class="fa-brands fa-linkedin"  style="color:#0077b5;"></i></a>
+    </div>
+    <p class="footer-copy">© 2026 WEBTRIVO. BUILD • RENDER • ELEVATE.</p>
+    <p style="font-size:0.62rem; color:rgba(255,255,255,0.25);">Privacy Policy &nbsp;•&nbsp; Terms of Service</p>
+</footer>
+
+
+
+<!-- COMPACT PILL BOTTOM NAV -->
+<nav class="pill-nav" id="pillNav">
+    <a href="mobile.html"          class="pn-item"        data-sec="home"     id="pnHome">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>Home</span>
+    </a>
+    <a href="mobile-work.html"     class="pn-item"        data-sec="work"     id="pnWork">
+        <i class="fa-regular fa-folder-open"></i>
+        <span>Projects</span>
+    </a>
+    <a href="mobile-services.html" class="pn-item"        data-sec="services" id="pnServices">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Services</span>
+    </a>
+    <a href="mobile-pricing.html"  class="pn-item"        data-sec="pricing"  id="pnPricing">
+        <i class="fa-solid fa-tag"></i>
+        <span>Pricing</span>
+    </a>
+    <a href="mobile-contact.html"  class="pn-item active" data-sec="contact"  id="pnContact">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>Contact</span>
+    </a>
+</nav>
+
+<script src="assets/js/mobile.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    const service = params.get('service');
+    const timeframe = params.get('timeframe');
+
+    if (type || service || timeframe) {
+        // Pre-select Deployment Tier Select Input
+        const tierSelect = document.querySelector('select[name="tier"]');
+        if (tierSelect) {
+            if (type === 'website') {
+                tierSelect.selectedIndex = 0; // Growth Engine (Starter Web)
+            } else if (type === 'shopify') {
+                tierSelect.selectedIndex = 1; // Shopify Pro Storefront
+            } else if (type === 'app') {
+                tierSelect.selectedIndex = 2; // Full Stack Custom App
+            }
+        }
+
+        // Pre-fill Project Scope Message Text Area
+        const msgArea = document.querySelector('textarea[name="message"]');
+        if (msgArea) {
+            let msg = `Hi Webtrivo, \n\nI am interested in: ${service || 'Custom Solution'}\nTarget Timeline: ${timeframe || 'Flexible'}\n\nPlease get in touch to discuss details.`;
+            msgArea.value = msg;
+        }
+    }
+});
+
+function toggleContactFaq(btn) {
+    const item = btn.closest('.contact-faq-item');
+    const isActive = item.classList.contains('active');
+    
+    // Close other FAQ items
+    document.querySelectorAll('.contact-faq-item').forEach(other => {
+        other.classList.remove('active');
+    });
+    
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Our Services | WEBTRIVO Mobile</title>
+    <meta name="description" content="Custom e-commerce storefronts, Shopify engineering, custom full-stack web applications, UI/UX design and branding.">
+    <link rel="canonical" href="https://webtrivo.in/mobile-services.html">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
+    <link class="favicon" rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Desktop Redirect Router -->
+    <script>
+        (function() {
+            function checkViewport() {
+                if (window.innerWidth >= 768) {
+                    window.location.replace("index.html#services");
+                }
+            }
+            checkViewport();
+            window.addEventListener('resize', checkViewport);
+        })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- Ambient Blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- DASH HEADER -->
+<header class="dash-header">
+    <a href="mobile.html" class="dash-brand">
+        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <span>WEBTRIVO</span>
+    </a>
+    <div class="dash-header-right">
+        <a href="mobile-contact.html" class="dash-icon-btn" aria-label="Contact">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+    </div>
+</header>
+
+<!-- FULL-SCREEN GLASS MENU DRAWER -->
+<div class="menu-drawer" id="menuDrawer">
+    <button class="menu-close-btn" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+    <a href="mobile.html"          class="menu-link">Home</a>
+    <a href="mobile-services.html" class="menu-link">Services</a>
+    <a href="mobile-work.html"     class="menu-link">Our Work</a>
+    <a href="mobile-pricing.html"  class="menu-link">Pricing</a>
+    <a href="mobile-contact.html"  class="menu-link">Contact</a>
+</div>
+
+<!-- SERVICES -->
+<section class="m-sec" id="services" style="padding-top: 80px;">
+    <span class="sec-eyebrow">What We Deliver</span>
+    <h2 class="sec-title reveal">Our <span class="hl">Services</span></h2>
+    <p class="sec-desc reveal">Powerful solutions for growing businesses — swipe left to explore.</p>
+
+    <div class="h-swiper">
+        <div class="swipe-slide reveal">
+            <div class="clay" style="height:100%;">
+                <div class="svc-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="clay-tag"><i class="fa-solid fa-fire-flame-curved"></i>&nbsp;Most Popular</div>
+                <h3 style="font-size:1.1rem; margin-bottom:9px;">Custom D2C Storefronts</h3>
+                <p style="font-size:0.81rem; color:var(--muted); line-height:1.6;">High-performance e-commerce websites designed to convert visitors into loyal customers, built from scratch for your brand.</p>
+            </div>
+        </div>
+        <div class="swipe-slide reveal d1">
+            <div class="clay" style="height:100%;">
+                <div class="svc-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3 style="font-size:1.1rem; margin-bottom:9px;">Full Stack Web Apps</h3>
+                <p style="font-size:0.81rem; color:var(--muted); line-height:1.6;">Complex web applications, custom dashboards, and scalable architectures engineered for speed, security, and growth.</p>
+            </div>
+        </div>
+        <div class="swipe-slide reveal d2">
+            <div class="clay" style="height:100%;">
+                <div class="svc-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <h3 style="font-size:1.1rem; margin-bottom:9px;">UI/UX Design & Branding</h3>
+                <p style="font-size:0.81rem; color:var(--muted); line-height:1.6;">Premium digital aesthetics that elevate your brand's prestige. We craft intuitive interfaces users truly love.</p>
+            </div>
+        </div>
+        <div class="swipe-slide reveal d3">
+            <div class="clay" style="height:100%;">
+                <div class="svc-icon"><i class="fa-brands fa-shopify"></i></div>
+                <h3 style="font-size:1.1rem; margin-bottom:9px;">Shopify Engineering</h3>
+                <p style="font-size:0.81rem; color:var(--muted); line-height:1.6;">Custom Shopify OS 2.0 themes with lightning-fast load times, seamless checkout flows, and cinematic animations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- WHY WEBTRIVO? -->
+<div class="d-card reveal d1" style="margin-top: 24px; margin-bottom: 24px;">
+    <div class="card-header">
+        <span class="card-eyebrow">Agency Updates</span>
+        <a href="mobile-contact.html" class="card-see-all" id="seeAllUpdates">Contact <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <h2 class="card-title">Why <span class="hl-blue">WEBTRIVO?</span></h2>
+    <ul class="update-list">
+        <li class="update-item" id="upd1">
+            <span class="update-icon" style="background:#dbeafe;"><i class="fa-solid fa-bolt-lightning" style="color:#2D8CFF;"></i></span>
+            <div class="update-body">
+                <strong>48h Rapid Delivery</strong>
+                <p>High-performance websites launched in record time without compromising quality.</p>
+            </div>
+        </li>
+        <li class="update-item" id="upd2">
+            <span class="update-icon" style="background:#dcfce7;"><i class="fa-solid fa-crosshairs" style="color:#16a34a;"></i></span>
+            <div class="update-body">
+                <strong>Conversion-First Design</strong>
+                <p>Every pixel engineered to turn casual browsers into loyal, paying customers.</p>
+            </div>
+        </li>
+        <li class="update-item" id="upd3">
+            <span class="update-icon" style="background:#ede9fe;"><i class="fa-solid fa-gears" style="color:#7c3aed;"></i></span>
+            <div class="update-body">
+                <strong>Scalable Architecture</strong>
+                <p>Robust infrastructure built to grow globally with your brand — zero downtime.</p>
+            </div>
+        </li>
+        <li class="update-item" id="upd4">
+            <span class="update-icon" style="background:#fce7f3;"><i class="fa-solid fa-magnifying-glass" style="color:#db2777;"></i></span>
+            <div class="update-body">
+                <strong>Technical SEO Built-In</strong>
+                <p>Optimised for Core Web Vitals, schema markup, and top search rankings.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ROADMAP BLUEPRINT -->
+<section class="m-sec" id="workflow">
+    <span class="sec-eyebrow">Our Blueprint</span>
+    <h2 class="sec-title reveal">How We <span class="hl">Build</span></h2>
+    <p class="sec-desc reveal">Elite end-to-end engineering roadmap optimized for rapid deployment and maximum scalability.</p>
+    
+    <div class="workflow-stack">
+        <!-- Step 1 -->
+        <div class="workflow-node reveal">
+            <div class="workflow-num">01</div>
+            <div class="workflow-txt">
+                <h4>High-Fidelity Mockup</h4>
+                <p>We render your concept into pixel-perfect custom Figma layouts, aligning closely on aesthetic styling before coding.</p>
+            </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="workflow-node reveal d1">
+            <div class="workflow-num">02</div>
+            <div class="workflow-txt">
+                <h4>Swift Code Execution</h4>
+                <p>We engineer your product from scratch using modern React, Next.js, or modular Shopify OS 2.0 theme components.</p>
+            </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="workflow-node reveal d2">
+            <div class="workflow-num">03</div>
+            <div class="workflow-txt">
+                <h4>99+ Speed Tuning</h4>
+                <p>We aggressively optimize assets, compress images, and run Core Web Vitals audits to guarantee sub-second loads.</p>
+            </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="workflow-node reveal d3">
+            <div class="workflow-num">04</div>
+            <div class="workflow-txt">
+                <h4>Scaled Deployment</h4>
+                <p>We deploy serverless architecture via Netlify or Vercel and hand off full codebase ownership with lifetime warranty support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CORE ADVANTAGES -->
+<section class="m-sec" id="advantages">
+    <span class="sec-eyebrow">Webtrivo Standards</span>
+    <h2 class="sec-title reveal">Core <span class="hl">Advantages</span></h2>
+    <p class="sec-desc reveal">Why premium brands trust our technical engineering over generic web agencies.</p>
+    
+    <div class="adv-grid">
+        <div class="adv-card reveal">
+            <div class="adv-icon"><i class="fa-solid fa-code"></i></div>
+            <div class="adv-title">Zero templates. 100% custom.</div>
+            <div class="adv-desc">Every line of code is handwritten for your business. We avoid bulky page builders or visual drag-and-drop templates.</div>
+        </div>
+        <div class="adv-card reveal d1">
+            <div class="adv-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="adv-title">SEO Structured Markup</div>
+            <div class="adv-desc">All websites ship pre-integrated with rich JSON-LD semantic markup to accelerate indexing and improve search rankings.</div>
+        </div>
+        <div class="adv-card reveal d2">
+            <div class="adv-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="adv-title">GSAP Cinematic Animations</div>
+            <div class="adv-desc">We design smooth scroll-driven interactive experiences that feel alive, modern, and visually memorable.</div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FEATURED CASE STUDY (TRIVOXS) -->
+<section class="m-sec" id="featured">
+    <span class="sec-eyebrow">Flagship Project</span>
+    <h2 class="sec-title reveal">TRIVOXS <span class="hl">Shopify Engine</span></h2>
+
+    <div class="glass-panel reveal d1" style="margin-top:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <span style="font-size:0.68rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:1px;">Featured Case Study</span>
+            <span class="lh-badge"><i class="fa-solid fa-gauge-high"></i>&nbsp;98 Speed Score</span>
+        </div>
+        <h3 style="font-size:1.2rem; color:var(--navy); margin-bottom:9px;">High-Performance Shopify OS 2.0</h3>
+        <p style="font-size:0.81rem; color:var(--muted); line-height:1.6; margin-bottom:12px;">
+            A cinematic, GSAP-powered Shopify experience for TRIVOXS Sneakers — featuring custom modular architecture and dynamic scroll-driven transitions.
+        </p>
+        <img class="feat-img" src="assets/img/trivoxs-hero.png" alt="TRIVOXS Shopify" onerror="this.style.display='none'">
+
+        <div style="display:flex; flex-direction:column; gap:9px; margin-bottom:18px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.8rem; color:var(--muted);">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-check" style="font-size:0.55rem;color:white;"></i>
+                </div>
+                Sub-second page load times with custom GSAP scroll triggers
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:0.8rem; color:var(--muted);">
+                <div style="width:22px;height:22px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                    <i class="fa-solid fa-check" style="font-size:0.55rem;color:white;"></i>
+                </div>
+                Custom Shopify OS 2.0 modular architecture for easy management
+            </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            <a href="mobile-contact.html" class="btn btn-blue" style="padding:12px;"><i class="fa-solid fa-rocket"></i> Start Your Migration</a>
+            <a href="https://trivoxs.netlify.app/" target="_blank" class="btn btn-ghost" style="padding:12px; border:1.5px solid rgba(45,140,255,0.2);">
+                <i class="fa-solid fa-circle-play"></i> View Live Demo
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="m-sec" style="padding-top:8px; padding-bottom:16px;">
+    <div class="disclaimer reveal">
+        <h5><i class="fa-solid fa-scale-balanced"></i> Strategic Disclosures</h5>
+        <p><strong>Intellectual Property:</strong> All project showcases, logos, and brand names belong to their respective owners. WEBTRIVO claims credit for digital engineering, design, and execution only.</p>
+        <p><strong>Service Delivery:</strong> "48h Execution" and ROI metrics are based on standard project scopes. Actual timelines vary by complexity.</p>
+        <p><strong>Confidentiality:</strong> WEBTRIVO operates under strict NDAs for all D2C and agency partnerships.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mobile-footer">
+    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <h3>WEBTRIVO</h3>
+    <p>Building digital empires through world-class design, rendering, and engineering.</p>
+    <div class="footer-socials">
+        <a href="https://wa.me/919229840686"                                 target="_blank"><i class="fa-brands fa-whatsapp"  style="color:#25d366;"></i></a>
+        <a href="https://www.instagram.com/webtrivo.in"                      target="_blank"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i></a>
+        <a href="https://www.linkedin.com/in/webtrivo-in-bb3018407"          target="_blank"><i class="fa-brands fa-linkedin"  style="color:#0077b5;"></i></a>
+    </div>
+    <p class="footer-copy">© 2026 WEBTRIVO. BUILD • RENDER • ELEVATE.</p>
+    <p style="font-size:0.62rem; color:rgba(255,255,255,0.25);">Privacy Policy &nbsp;•&nbsp; Terms of Service</p>
+</footer>
+
+
+
+<!-- COMPACT PILL BOTTOM NAV -->
+<nav class="pill-nav" id="pillNav">
+    <a href="mobile.html"          class="pn-item"        data-sec="home"     id="pnHome">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>Home</span>
+    </a>
+    <a href="mobile-work.html"     class="pn-item"        data-sec="work"     id="pnWork">
+        <i class="fa-regular fa-folder-open"></i>
+        <span>Projects</span>
+    </a>
+    <a href="mobile-services.html" class="pn-item active" data-sec="services" id="pnServices">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Services</span>
+    </a>
+    <a href="mobile-pricing.html"  class="pn-item"        data-sec="pricing"  id="pnPricing">
+        <i class="fa-solid fa-tag"></i>
+        <span>Pricing</span>
+    </a>
+    <a href="mobile-contact.html"  class="pn-item"        data-sec="contact"  id="pnContact">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>Contact</span>
+    </a>
+</nav>
+
+<script src="assets/js/mobile.js"></script>
+
+</body>
+</html>

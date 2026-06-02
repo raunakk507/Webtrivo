@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Our Work | WEBTRIVO Mobile</title>
+    <meta name="description" content="Portfolio of our premium e-commerce, Next.js, and luxury web design projects built to scale.">
+    <link rel="canonical" href="https://webtrivo.in/mobile-work.html">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Desktop Redirect Router -->
+    <script>
+        (function() {
+            function checkViewport() {
+                if (window.innerWidth >= 768) {
+                    window.location.replace("index.html#portfolio");
+                }
+            }
+            checkViewport();
+            window.addEventListener('resize', checkViewport);
+        })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- Ambient Blobs -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- DASH HEADER -->
+<header class="dash-header">
+    <a href="mobile.html" class="dash-brand">
+        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <span>WEBTRIVO</span>
+    </a>
+    <div class="dash-header-right">
+        <a href="mobile-contact.html" class="dash-icon-btn" aria-label="Contact">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+    </div>
+</header>
+
+<!-- FULL-SCREEN GLASS MENU DRAWER -->
+<div class="menu-drawer" id="menuDrawer">
+    <button class="menu-close-btn" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+    <a href="mobile.html"          class="menu-link">Home</a>
+    <a href="mobile-services.html" class="menu-link">Services</a>
+    <a href="mobile-work.html"     class="menu-link">Our Work</a>
+    <a href="mobile-pricing.html"  class="menu-link">Pricing</a>
+    <a href="mobile-contact.html"  class="menu-link">Contact</a>
+</div>
+
+<!-- PORTFOLIO / CASE STUDIES -->
+<section class="m-sec" id="work" style="padding-top: 80px;">
+    <span class="sec-eyebrow">Real Results</span>
+    <h2 class="sec-title reveal">Our <span class="hl">Live Projects</span></h2>
+    <p class="sec-desc reveal" style="margin-bottom:18px;">Real-world examples of how we help brands scale — filter and swipe through our work.</p>
+
+    <!-- Dynamic Category Filter Pills -->
+    <div class="filter-container reveal">
+        <button class="filter-pill active" onclick="filterProjects('all', this)">All</button>
+        <button class="filter-pill" onclick="filterProjects('ecommerce', this)">E-Commerce</button>
+        <button class="filter-pill" onclick="filterProjects('app', this)">Custom Apps</button>
+        <button class="filter-pill" onclick="filterProjects('landing', this)">Landing Pages</button>
+    </div>
+
+    <div class="h-swiper" id="projectsSwiper">
+        <!-- Neon Audio -->
+        <div class="swipe-slide reveal" data-category="ecommerce">
+            <div class="project-card">
+                <img class="project-thumb" src="assets/img/kingveen1.png" alt="Neon Audio" loading="lazy" onerror="this.style.display='none'">
+                <div class="project-body">
+                    <span class="project-badge">Custom E-Commerce</span>
+                    <h4 class="project-title">Neon Audio: High-Speed Store</h4>
+                    <p class="project-desc"><strong>Goal:</strong> Blazing-fast storefront for premium audio gear.<br><strong>Result:</strong> 40% higher conversions, sub-second loads.</p>
+                    
+                    <!-- Tech Badges -->
+                    <div class="project-techs">
+                        <span class="tech-badge">Shopify OS 2.0</span>
+                        <span class="tech-badge">GSAP</span>
+                        <span class="tech-badge">Liquid</span>
+                        <span class="tech-badge">Tailwind</span>
+                    </div>
+                    
+                    <div style="display:flex;gap:8px;margin-top:14px;">
+                        <a href="https://kingveen-by-webtrivo.netlify.app/" target="_blank" class="btn-blue-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Artisan Home -->
+        <div class="swipe-slide reveal d1" data-category="ecommerce">
+            <div class="project-card">
+                <img class="project-thumb" src="assets/img/artisan1.png" alt="Artisan Home" loading="lazy" onerror="this.style.display='none'">
+                <div class="project-body">
+                    <span class="project-badge">E-Commerce Engine</span>
+                    <h4 class="project-title">Artisan Home: Luxury Selling</h4>
+                    <p class="project-desc"><strong>Goal:</strong> Build trust for high-ticket luxury furniture.<br><strong>Result:</strong> 50% more qualified showroom leads.</p>
+                    
+                    <!-- Tech Badges -->
+                    <div class="project-techs">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">GraphQL</span>
+                        <span class="tech-badge">Netlify</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:14px;">
+                        <a href="https://artlisanhome.netlify.app/" target="_blank" class="btn-blue-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pure Beauty -->
+        <div class="swipe-slide reveal d2" data-category="app">
+            <div class="project-card">
+                <img class="project-thumb" src="assets/img/beauty web.jpeg" alt="Pure Beauty" loading="lazy" onerror="this.style.display='none'">
+                <div class="project-body">
+                    <span class="project-badge">Beauty Tech · Next.js</span>
+                    <h4 class="project-title">Pure Beauty: Skincare Ecosystem</h4>
+                    <p class="project-desc"><strong>Challenge:</strong> Standard templates lacked visual fidelity.<br><strong>ROI:</strong> 65% faster loads, premium D2C trust.</p>
+                    
+                    <!-- Tech Badges -->
+                    <div class="project-techs">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">Headless D2C</span>
+                        <span class="tech-badge">Tailwind</span>
+                        <span class="tech-badge">Vercel</span>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:14px;">
+                        <a href="https://heartfelt-zuccutto-5f9085.netlify.app/" target="_blank" class="btn-blue-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OpenSky Pro -->
+        <div class="swipe-slide reveal d3" data-category="landing">
+            <div class="project-card">
+                <img class="project-thumb" src="assets/img/Screenshot 2026-05-10 194138.png" alt="OpenSky Pro" loading="lazy" onerror="this.style.display='none'">
+                <div class="project-body">
+                    <span class="project-badge">Luxury Real Estate</span>
+                    <h4 class="project-title">OpenSky Pro: Property Tech</h4>
+                    <p class="project-desc"><strong>Goal:</strong> High-end digital presence for premium listings.<br><strong>Result:</strong> Increased leads for multi-million estates.</p>
+                    
+                    <!-- Tech Badges -->
+                    <div class="project-techs">
+                        <span class="tech-badge">Next.js</span>
+                        <span class="tech-badge">Framer Motion</span>
+                        <span class="tech-badge">Mapbox API</span>
+                    </div>
+
+                    <div style="display:flex;gap:8px;margin-top:14px;">
+                        <a href="https://majestic-squirrel-eb8c95.netlify.app/" target="_blank" class="btn-blue-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="m-sec" style="padding-top:8px; padding-bottom:16px;">
+    <div class="disclaimer reveal">
+        <h5><i class="fa-solid fa-scale-balanced"></i> Strategic Disclosures</h5>
+        <p><strong>Intellectual Property:</strong> All project showcases, logos, and brand names belong to their respective owners. WEBTRIVO claims credit for digital engineering, design, and execution only.</p>
+        <p><strong>Service Delivery:</strong> "48h Execution" and ROI metrics are based on standard project scopes. Actual timelines vary by complexity.</p>
+        <p><strong>Confidentiality:</strong> WEBTRIVO operates under strict NDAs for all D2C and agency partnerships.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mobile-footer">
+    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <h3>WEBTRIVO</h3>
+    <p>Building digital empires through world-class design, rendering, and engineering.</p>
+    <div class="footer-socials">
+        <a href="https://wa.me/919229840686"                                 target="_blank"><i class="fa-brands fa-whatsapp"  style="color:#25d366;"></i></a>
+        <a href="https://www.instagram.com/webtrivo.in"                      target="_blank"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i></a>
+        <a href="https://www.linkedin.com/in/webtrivo-in-bb3018407"          target="_blank"><i class="fa-brands fa-linkedin"  style="color:#0077b5;"></i></a>
+    </div>
+    <p class="footer-copy">© 2026 WEBTRIVO. BUILD • RENDER • ELEVATE.</p>
+    <p style="font-size:0.62rem; color:rgba(255,255,255,0.25);">Privacy Policy &nbsp;•&nbsp; Terms of Service</p>
+</footer>
+
+
+
+<!-- COMPACT PILL BOTTOM NAV -->
+<nav class="pill-nav" id="pillNav">
+    <a href="mobile.html"          class="pn-item"        data-sec="home"     id="pnHome">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>Home</span>
+    </a>
+    <a href="mobile-work.html"     class="pn-item active" data-sec="work"     id="pnWork">
+        <i class="fa-regular fa-folder-open"></i>
+        <span>Projects</span>
+    </a>
+    <a href="mobile-services.html" class="pn-item"        data-sec="services" id="pnServices">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Services</span>
+    </a>
+    <a href="mobile-pricing.html"  class="pn-item"        data-sec="pricing"  id="pnPricing">
+        <i class="fa-solid fa-tag"></i>
+        <span>Pricing</span>
+    </a>
+    <a href="mobile-contact.html"  class="pn-item"        data-sec="contact"  id="pnContact">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>Contact</span>
+    </a>
+</nav>
+
+<script src="assets/js/mobile.js"></script>
+<script>
+function filterProjects(category, btn) {
+    // Toggle active class on pills
+    document.querySelectorAll('.filter-pill').forEach(pill => pill.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Toggle projects display
+    const slides = document.querySelectorAll('#projectsSwiper .swipe-slide');
+    slides.forEach(slide => {
+        const cat = slide.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+            slide.style.display = 'block';
+            slide.style.opacity = '0';
+            setTimeout(() => {
+                slide.style.opacity = '1';
+                slide.classList.add('show');
+            }, 50);
+        } else {
+            slide.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>

@@ -3,3 +3,5 @@ graphify-out/
 .DS_Store
 node_modules/
 .env
+index.html.bak
+scratch/

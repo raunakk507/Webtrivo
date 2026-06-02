@@ -1,394 +1,595 @@
+/* === BLOCK 1: STABLE INIT & SITE LOGIC === */
+// ==========================================
+// Super Stable Init Logic
+// ==========================================
+
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.transition = 'opacity 0.8s ease-out';
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+                console.log('ScrollTrigger refreshed after loader hide');
+            }
+        }, 800);
+        console.log('Loader hidden successfully');
+    }
+}
+
+// Start Everything function
+function startWebtrivo() {
+      console.log("Starting WEBTRIVO initialization...");
+      try { initLenis(); } catch(e) { console.error(e); }
+      try { initSiteLogic(); } catch(e) { console.error(e); }
+      hideLoader();
+      
+      // Post-load failsafe refresh after layout has fully settled
+      setTimeout(() => {
+          if (typeof ScrollTrigger !== 'undefined') {
+              ScrollTrigger.refresh();
+              console.log('ScrollTrigger post-load settled refresh executed');
+          }
+      }, 1000);
+  }
+
+// THE FIX: Check if page is already loaded
+if (document.readyState === 'complete') {
+    startWebtrivo();
+} else {
+    window.addEventListener('load', startWebtrivo);
+}
+
+// Failsafe: If loader still exists after 2 seconds, kill it
+setTimeout(hideLoader, 2000);
+
 
 // ==========================================
 // 1. Lenis Smooth Scrolling Engine
 // ==========================================
-const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false,
-})
-
-// Sync GSAP ScrollTrigger with Lenis
-lenis.on('scroll', ScrollTrigger.update)
-
-gsap.ticker.add((time)=>{
-    lenis.raf(time * 1000)
-})
-
-gsap.ticker.lagSmoothing(0, 0)
-
+let lenis;
+function initLenis() {
+    try {
+        if (typeof Lenis === 'undefined') return;
+        lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            smooth: true,
+        });
+        lenis.on('scroll', () => { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update(); });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+        console.log('Lenis initialized');
+    } catch (e) { console.error('Lenis error:', e); }
+}
 
 // ==========================================
 // 2. Three.js 'White Luxury / Glass Orbs' Engine
 // ==========================================
-function initThreeJS() {
-    const container = document.getElementById('canvas-container');
-    if (!container) return;
-
-    // Clear previous
-    container.innerHTML = '';
-
-    const scene = new THREE.Scene();
-    // Scene background transparent to show hero-bg
-    
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 100;
-
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-
-    // Add Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(10, 20, 30);
-    scene.add(directionalLight);
-
-    // Create Elegant Floating Shapes (Glass/Gold)
-    const shapes = [];
-    const geometry1 = new THREE.IcosahedronGeometry(2, 0); // Geometric tech vibe
-    const geometry2 = new THREE.SphereGeometry(1.5, 32, 32); // Smooth glass vibe
-    const geometry3 = new THREE.TorusGeometry(1.5, 0.5, 16, 100);
-
-    // Premium Materials
-    const lightBlueMaterial = new THREE.MeshStandardMaterial({
-        color: 0x89CFF0,
-        metalness: 0.1,
-        roughness: 0.5,
-    });
-
-    const glassMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xffffff,
-        metalness: 0.1,
-        roughness: 0.05,
-        transmission: 0.9, // glass effect
-        ior: 1.5,
-        thickness: 0.5,
-    });
-
-    const whiteMaterial = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
-        metalness: 0.2,
-        roughness: 0.3,
-    });
-
-    for(let i = 0; i < 40; i++) {
-        let mesh;
-        const rand = Math.random();
-        if (rand < 0.4) mesh = new THREE.Mesh(geometry1, lightBlueMaterial);
-        else if (rand < 0.7) mesh = new THREE.Mesh(geometry2, glassMaterial);
-        else mesh = new THREE.Mesh(geometry3, whiteMaterial);
-
-        mesh.position.x = (Math.random() - 0.5) * 200;
-        mesh.position.y = (Math.random() - 0.5) * 100;
-        mesh.position.z = (Math.random() - 0.5) * 100;
-
-        mesh.rotation.x = Math.random() * Math.PI;
-        mesh.rotation.y = Math.random() * Math.PI;
-
-        // Custom animation speeds
-        mesh.userData = {
-            rx: (Math.random() - 0.5) * 0.02,
-            ry: (Math.random() - 0.5) * 0.02,
-            yOff: Math.random() * Math.PI * 2,
-            yAmp: Math.random() * 0.1
-        };
-
-        shapes.push(mesh);
-        scene.add(mesh);
+function initThreeJS() { 
+    try {
+        console.log("Three.js skipped for performance"); 
+    } catch (e) { 
+        console.error('Three.js error:', e); 
     }
-
-    // Mouse Interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    document.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - windowHalfX) * 0.05;
-        mouseY = (event.clientY - windowHalfY) * 0.05;
-    });
-
-    // Animation Loop
-    let time = 0;
-    function animate() {
-        requestAnimationFrame(animate);
-        time += 0.01;
-
-        targetX = mouseX * 0.5;
-        targetY = mouseY * 0.5;
-
-        // Move camera slightly for parallax
-        camera.position.x += (targetX - camera.position.x) * 0.05;
-        camera.position.y += (-targetY - camera.position.y) * 0.05;
-        camera.lookAt(scene.position);
-
-        shapes.forEach(mesh => {
-            mesh.rotation.x += mesh.userData.rx;
-            mesh.rotation.y += mesh.userData.ry;
-            mesh.position.y += Math.sin(time + mesh.userData.yOff) * mesh.userData.yAmp;
-        });
-
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
 }
-initThreeJS();
 
 // ==========================================
 // 3. Original Website Logic
 // ==========================================
+function initSiteLogic() {
+    try {
+        // if (typeof lucide !== 'undefined') lucide.createIcons();
 
-// Initialize Lucide Icons
-// lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+            const topBtn = document.getElementById('scrollTop');
+            if (topBtn) topBtn.classList.toggle('show', window.scrollY > 500);
+        });
 
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const closeMenu = document.getElementById('closeMenu');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => navLinks.classList.add('active'));
         }
-    }
-});
+        
+        if (closeMenu && navLinks) {
+            closeMenu.addEventListener('click', () => navLinks.classList.remove('active'));
+        }
 
-// Hamburger Menu Logic
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-const closeMenu = document.getElementById('closeMenu');
-const menuLinks = document.querySelectorAll('.nav-links a');
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992 && navLinks) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
 
-if (hamburger && navLinks) {
-    // Open Menu
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
-    });
+        // Optimized Image Observer for Bandwidth Saving
+        const observerOptions = {
+            root: null,
+            rootMargin: '50px',
+            threshold: 0.1
+        };
 
-    // Close Menu Functions
-    const hideMenu = () => {
-        navLinks.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
-    };
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, observerOptions);
 
-    if (closeMenu) {
-        closeMenu.addEventListener('click', hideMenu);
-    }
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            imageObserver.observe(img);
+        });
 
-    // Auto-close on link click
-    menuLinks.forEach(link => {
-        link.addEventListener('click', hideMenu);
-    });
+        if (typeof gsap !== 'undefined') {
+            if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const val = btn.getAttribute('data-filter');
+                    document.querySelectorAll('.portfolio-card').forEach(card => {
+                        const match = val === 'all' || card.getAttribute('data-category').includes(val);
+                        gsap.to(card, { opacity: match ? 1 : 0, scale: match ? 1 : 0.8, display: match ? 'block' : 'none', duration: 0.4 });
+                    });
+                });
+            });
+
+            document.querySelectorAll('.counter').forEach(c => {
+                const target = +c.getAttribute('data-target');
+                gsap.to(c, { scrollTrigger: { trigger: '#stats', start: 'top 80%' }, innerText: target, duration: 2, snap: { innerText: 1 }, ease: 'power1.out' });
+            });
+        }
+
+        // Contact form is now handled by Web3Forms (no JS needed)
+
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        if (cursorDot && cursorOutline) {
+            window.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+                cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: 'forwards', easing: 'cubic-bezier(0.23, 1, 0.32, 1)' });
+            });
+            document.querySelectorAll('a, button, .btn, .service-card, .portfolio-card, .pricing-card, .team-card, .filter-btn').forEach(item => {
+                item.addEventListener('mouseenter', () => { cursorOutline.classList.add('cursor-hover'); cursorDot.classList.add('cursor-hover-dot'); });
+                item.addEventListener('mouseleave', () => { cursorOutline.classList.remove('cursor-hover'); cursorDot.classList.remove('cursor-hover-dot'); });
+            });
+        }
+        console.log('Site logic initialized');
+    } catch (e) { console.error('Site logic error:', e); }
 }
 
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
+// 3D Laptop Frame Player Engine
+// Laptop player engine removed
 
-// Hero Content Fade-In
-gsap.from('.hero-logo', { opacity: 0, y: -50, duration: 1, delay: 0.2 });
-gsap.from('#hero-title', { opacity: 0, scale: 0.9, duration: 1, delay: 0.5 });
-gsap.from('.hero-subtext', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
-gsap.from('.hero-tagline', { opacity: 0, letterSpacing: '1em', duration: 1.5, delay: 1 });
-gsap.from('.hero-actions', { opacity: 0, y: 30, duration: 1, delay: 1.3 });
+// Failsafe: Hide loader if stuck after 3 seconds
+setTimeout(hideLoader, 3000);
 
-// Section Fade-In Animation
-const sections = ['services', 'portfolio', 'why-us', 'stats', 'pricing', 'team', 'contact'];
-sections.forEach(section => {
-    const el = document.querySelector(`#${section} .section-header`);
-    if (el) {
-        gsap.from(el, {
-            scrollTrigger: {
-                trigger: `#${section}`,
-                start: 'top 80%',
+
+
+/* === BLOCK 2: PORTFOLIO SHOWCASE MODAL === */
+        const modal = document.getElementById('projectModal');
+        const projects = {
+            kingveen: {
+                title: "NEONLAB Premium Store",
+                category: "PREMIUM SHOWCASE",
+                desc: "A futuristic, high-performance product showcase built to elevate brand prestige. Features include dynamic custom transitions, immersive digital aesthetics, and a fully responsive architecture optimized for all devices.",
+                url: "https://kingveen-by-webtrivo.netlify.app/",
+                images: ["assets/img/kingveen1.png", "assets/img/kingveen2.png", "assets/img/kingveen3.png"]
             },
-            opacity: 0,
-            y: 50,
-            duration: 1
-        });
-    }
-});
+            artisan: {
+                title: "Artisan Home",
+                category: "INTERIOR E-COMMERCE",
+                desc: "A premium furniture and interior design e-commerce platform. Features a clean, sophisticated aesthetic with high-resolution galleries, room-based categories, and a seamless shopping experience.",
+                url: "https://artlisanhome.netlify.app/",
+                images: ["assets/img/artisan1.png"]
+            }
+        };
 
-// Featured Work Reveal
-gsap.from('#featured-work .container > div > div', {
-    scrollTrigger: {
-        trigger: '#featured-work',
-        start: 'top 70%',
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1.2,
-    ease: "power3.out",
-    stagger: 0.3
-});
+        function openProjectModal(projectId) {
+            const data = projects[projectId];
+            if (!data) return;
 
-// Portfolio Filter Logic
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        portfolioCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
-                gsap.to(card, { opacity: 1, scale: 1, display: 'block', duration: 0.4 });
+            document.getElementById('mainModalImg').src = data.images[0];
+            const thumbRow = document.querySelector('.thumbnail-row');
+            thumbRow.innerHTML = '';
+            
+            if (data.images.length > 1) {
+                thumbRow.style.display = 'flex';
+                data.images.forEach((img, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = img;
+                    thumb.className = `modal-thumb ${index === 0 ? 'active' : ''}`;
+                    thumb.onclick = () => switchModalImg(img, thumb);
+                    thumbRow.appendChild(thumb);
+                });
             } else {
-                gsap.to(card, { opacity: 0, scale: 0.8, display: 'none', duration: 0.4 });
+                thumbRow.style.display = 'none';
+            }
+
+            document.querySelector('.modal-info h3').innerText = data.title;
+            document.querySelector('.modal-info .portfolio-category').innerText = data.category;
+            document.querySelector('.modal-info p').innerText = data.desc;
+            document.querySelector('.modal-actions a.btn-primary').href = data.url;
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Project Modal logic (Existing)
+        function closeProjectModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function switchModalImg(src, thumb) {
+            document.getElementById('mainModalImg').src = src;
+            document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeProjectModal();
+        }
+
+/* === BLOCK 3: HERO CINEMATIC STATE MACHINE === */
+        // ==========================================
+        // HERO CINEMATIC STATE MACHINE
+        // ==========================================
+        const heroStates = [
+            {
+                badge: "PREMIUM WEB DESIGN",
+                title: ["Design.", "Build.", "Launch."],
+                subtext: "We build beautiful, high-converting Full-Stack websites for ambitious D2C brands.",
+                colors: ["#ffd700", "#ffffff", "#ffd700"], 
+                badgeColor: "#ffd700",
+                subtextColor: "rgba(255,255,255,0.8)",
+                shadow: "0 10px 40px rgba(255, 215, 0, 0.3)",
+                bgIndex: 0 // Dark Purple
+            },
+            {
+                badge: "HIGH-SPEED PERFORMANCE",
+                title: ["Fast.", "Secure.", "Scalable."],
+                subtext: "Websites engineered to load instantly, providing a seamless experience for your customers.",
+                colors: ["#ffffff", "#38bdf8", "#ffffff"], 
+                badgeColor: "#38bdf8",
+                subtextColor: "rgba(255,255,255,0.7)",
+                shadow: "0 10px 30px rgba(56, 189, 248, 0.2)",
+                bgIndex: 1 // Deep Navy
+            },
+            {
+                badge: "E-COMMERCE OPTIMIZED",
+                title: ["Engage.", "Convert.", "Grow."],
+                subtext: "More than just design—we engineer digital storefronts optimized to turn visitors into buyers.",
+                colors: ["#0f172a", "#38bdf8", "#0f172a"], 
+                badgeColor: "#0f172a",
+                subtextColor: "#64748b",
+                shadow: "none",
+                bgIndex: 2 // Luxury White
+            }
+        ];
+
+        let currentHeroState = 0;
+        const bgStates = document.querySelectorAll('.hero-bg-state');
+        const badgeTextEl = document.querySelector('#state-badge');
+        const heroWords = [
+            document.querySelector('#state-word-1'),
+            document.querySelector('#state-word-2'),
+            document.querySelector('#state-word-3')
+        ];
+        const heroSubtextEl = document.querySelector('#hero-subtext');
+        const heroBadgeEl = document.querySelector('#hero-badge');
+        const heroMainTitleEl = document.querySelector('#hero-main-title');
+
+        function updateHeroState() {
+            currentHeroState = (currentHeroState + 1) % heroStates.length;
+            const state = heroStates[currentHeroState];
+            console.log("Transitioning to Hero State: " + state.badge);
+
+            // FASTER Background Transition
+            bgStates.forEach((bg, i) => {
+                gsap.to(bg, { opacity: i === state.bgIndex ? 1 : 0, duration: 1, ease: "power2.inOut" });
+            });
+
+            // Professional Horizontal Slider Transition
+            const tl = gsap.timeline();
+            tl.to([heroMainTitleEl, heroSubtextEl, heroBadgeEl], { x: 100, opacity: 0, duration: 0.5, stagger: 0.05, ease: "power2.in" })
+              .call(() => {
+                  badgeTextEl.textContent = state.badge;
+                  badgeTextEl.style.color = state.badgeColor;
+                  heroSubtextEl.textContent = state.subtext;
+                  heroSubtextEl.style.color = state.subtextColor;
+                  heroWords.forEach((w, i) => {
+                      w.textContent = state.title[i];
+                      w.style.color = state.colors[i];
+                      w.style.textShadow = state.shadow;
+                      w.style.webkitTextStroke = state.bgIndex === 2 ? "none" : "0.5px rgba(255,255,255,0.1)"; // No outline on light theme
+                  });
+                  // Reset position for entrance
+                  gsap.set([heroMainTitleEl, heroSubtextEl, heroBadgeEl], { x: -100 });
+              })
+              .to([heroMainTitleEl, heroSubtextEl, heroBadgeEl], { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" });
+        }
+
+        // Initialize Hero on Load
+        window.addEventListener('load', () => {
+            // Initial Animation
+            gsap.to('#hero-badge', { opacity: 1, y: 0, duration: 1.2, delay: 0.5 });
+            gsap.to('#hero-main-title', { opacity: 1, y: 0, duration: 1.2, delay: 0.7 });
+            gsap.to('#hero-subtext', { opacity: 1, y: 0, duration: 1.2, delay: 0.9 });
+            gsap.to('#hero-ctas', { opacity: 1, y: 0, duration: 1.2, delay: 1.1 });
+
+            // Start Cycle
+            setInterval(updateHeroState, 5000);
+
+            // Close Loader
+            const loader = document.getElementById('loader');
+            if(loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 500);
+                }, 1000);
             }
         });
-    });
-});
 
-// Stats Counter Animation
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    gsap.to(counter, {
-        scrollTrigger: {
-            trigger: '#stats',
-            start: 'top 80%',
-        },
-        innerText: target,
-        duration: 2,
-        snap: { innerText: 1 },
-        ease: 'power1.out'
-    });
-});
+/* === BLOCK 4: AUTO-SCROLL TICKERS, ACCORDIONS & THEMES === */
+        // ==========================================
+        // UNIFIED SMOOTH TICKER AUTO-SCROLL
+        // ==========================================
+        function initMobileAutoScroll() {
+            const tickerSelectors = [
+                '#case-studies-grid', 
+                '.why-grid', 
+                '#insights-grid', 
+                '.partnership-grid'
+            ];
 
-// Page Loader Logic
-window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-                animateHero();
-            }, 800);
-        }, 1500);
-    }
-});
+            tickerSelectors.forEach(selector => {
+                const container = document.querySelector(selector);
+                if (!container) return;
 
-// Scroll Top Logic
-window.addEventListener('scroll', () => {
-    const topBtn = document.getElementById('scrollTop');
-    if (topBtn) {
-        if (window.scrollY > 500) {
-            topBtn.classList.add('show');
-        } else {
-            topBtn.classList.remove('show');
+                let isPaused = false;
+                let exactScroll = 0;
+                const speed = 0.5; // Slightly slower, ultra-smooth pixel increment
+
+                function tick() {
+                    if (!isPaused) {
+                        exactScroll += speed;
+                        container.scrollLeft = Math.floor(exactScroll);
+                        
+                        // Loop back if reached the end
+                        if (container.scrollLeft >= (container.scrollWidth - container.clientWidth - 1)) {
+                            exactScroll = 0;
+                            container.scrollLeft = 0;
+                        }
+                    } else {
+                        // Sync exactScroll with actual position if user manually swipes while paused
+                        exactScroll = container.scrollLeft;
+                    }
+                    requestAnimationFrame(tick);
+                }
+
+                container.addEventListener('touchstart', () => isPaused = true, {passive: true});
+                container.addEventListener('touchend', () => setTimeout(() => isPaused = false, 1500), {passive: true});
+                
+                requestAnimationFrame(tick);
+            });
         }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleFloat = document.getElementById('theme-toggle-float');
+        const body = document.body;
+
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Animation effect for icons
+            const icons = document.querySelectorAll('.theme-toggle i');
+            icons.forEach(icon => {
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    icon.style.transform = 'rotate(0deg)';
+                }, 500);
+            });
+        }
+
+        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+        if (themeToggleFloat) themeToggleFloat.addEventListener('click', toggleTheme);
+
+        // 3. FAQ ACCORDION LOGIC
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                const isOpen = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
+
+                // Close all other items
+                faqItems.forEach(other => {
+                    other.querySelector('.faq-answer').style.maxHeight = '0px';
+                    other.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+                });
+
+                if (!isOpen) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        window.addEventListener('load', initMobileAutoScroll);
+
+/* === BLOCK 5: PIPELINE SLIDER === */
+        // Auto-scroll for Pipeline Slider
+        const pipelineSlider = document.querySelector('.pipeline-slider');
+        if (pipelineSlider) {
+            let pipelineStep = 0;
+            const totalPipelineSteps = 3;
+            
+            setInterval(() => {
+                pipelineStep = (pipelineStep + 1) % totalPipelineSteps;
+                const scrollTarget = pipelineStep * (pipelineSlider.querySelector('.pipeline-step').offsetWidth + 30);
+                pipelineSlider.scrollTo({
+                    left: scrollTarget,
+                    behavior: 'smooth'
+                });
+            }, 4000);
+        }
+
+/* ════════════════════════════════════════
+   GSAP SCROLL-TRIGGER ENTRANCE ANIMATIONS
+   Premium individual card reveal system
+   ════════════════════════════════════════ */
+(function initScrollAnimations() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Section Headers: Blur-in from bottom ──
+    gsap.utils.toArray('.section-header').forEach(header => {
+        gsap.from(header, {
+            scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 50, filter: 'blur(8px)', duration: 0.9, ease: 'power3.out'
+        });
+    });
+
+    // ── Service Cards: Individual scale-in ──
+    gsap.utils.toArray('.service-card, .partnership-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, scale: 0.8, y: 40, duration: 0.7, ease: 'back.out(1.4)'
+        });
+    });
+
+    // ── Portfolio Cards: Individual fade up ──
+    gsap.utils.toArray('.portfolio-card, .case-study-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 50, duration: 0.8, ease: 'power3.out'
+        });
+    });
+
+    // ── Process Steps: Individual slide from left ──
+    gsap.utils.toArray('.process-card, .process-step, [id="process"] .glass-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, x: -50, duration: 0.7, ease: 'power2.out'
+        });
+    });
+
+    // ── Why Us Cards ──
+    gsap.utils.toArray('#why-us .glass-card, #why-us .service-card, #why-us .why-item, #why-us [class*="card"]').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 50, scale: 0.9, duration: 0.7, ease: 'power3.out'
+        });
+    });
+
+    // ── Insight Cards ──
+    gsap.utils.toArray('#insights [class*="card"], #insights .insight-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 40, duration: 0.7, ease: 'power2.out'
+        });
+    });
+
+    // ── Stats Counters: Scale pop ──
+    gsap.utils.toArray('#stats .counter, #stats [class*="stat"]').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, scale: 0.5, duration: 0.6, ease: 'back.out(2)'
+        });
+    });
+
+    // ── Pricing Cards: Staggered rise ──
+    gsap.utils.toArray('.pricing-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 60, duration: 0.8, ease: 'power3.out'
+        });
+    });
+
+    // ── Team Cards: Scale + rotate slight ──
+    gsap.utils.toArray('.team-card').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, scale: 0.85, rotation: 2, duration: 0.7, ease: 'power3.out'
+        });
+    });
+
+    // ── FAQ Items: Slide from right ──
+    gsap.utils.toArray('#faq .faq-item, #faq [class*="faq"]').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
+            opacity: 0, x: 40, duration: 0.6, ease: 'power2.out'
+        });
+    });
+
+    // ── Contact Section ──
+    const contactEl = document.querySelector('#contact');
+    if (contactEl) {
+        gsap.from('#contact .section-header', {
+            scrollTrigger: { trigger: '#contact', start: 'top 80%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+        });
+        gsap.from('#contact .glass-card, #contact form', {
+            scrollTrigger: { trigger: '#contact', start: 'top 70%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 50, scale: 0.95, duration: 0.9, ease: 'power3.out', delay: 0.2
+        });
     }
-});
 
-// Hero Content Animation
-const animateHero = () => {
-    gsap.from('.hero-logo', { opacity: 0, scale: 0.8, duration: 1.2, ease: "back.out(1.7)" });
-    gsap.from('#hero-title', { 
-        opacity: 0, 
-        y: 50, 
-        duration: 1, 
-        stagger: 0.2,
-        delay: 0.3 
-    });
-    gsap.from('.hero-subtext, .hero-tagline', { 
-        opacity: 0, 
-        x: -30, 
-        duration: 1, 
-        delay: 0.6 
-    });
-    gsap.from('.hero-actions', { 
-        opacity: 0, 
-        y: 20, 
-        duration: 0.8, 
-        delay: 1 
-    });
-};
-
-// Form Submission Enhanced
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = e.target.querySelector('button');
-        const originalText = btn.innerText;
-        btn.innerText = "👑 Building Your Empire...";
-        btn.disabled = true;
-
-        setTimeout(() => {
-            alert('Success! Our team will contact you within 24 hours to discuss your project.');
-            btn.innerText = originalText;
-            btn.disabled = false;
-            e.target.reset();
-        }, 2000);
-    });
-}
-
-// Premium Cursor Engine
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-
-let cursorX = 0, cursorY = 0;
-let mouseX = 0, mouseY = 0;
-
-window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
-
-const animateCursor = () => {
-    // Smooth interpolation for the outline
-    cursorX += (mouseX - cursorX) * 0.15;
-    cursorY += (mouseY - cursorY) * 0.15;
-
-    if (cursorDot) {
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
+    // ── About / Featured Work section ──
+    const aboutEl = document.querySelector('#about');
+    if (aboutEl) {
+        gsap.from('#about', {
+            scrollTrigger: { trigger: '#about', start: 'top 80%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 50, duration: 1, ease: 'power3.out'
+        });
+    }
+    const featuredEl = document.querySelector('#featured-work');
+    if (featuredEl) {
+        gsap.from('#featured-work', {
+            scrollTrigger: { trigger: '#featured-work', start: 'top 80%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 60, duration: 1, ease: 'power3.out'
+        });
     }
 
-    if (cursorOutline) {
-        cursorOutline.style.left = `${cursorX}px`;
-        cursorOutline.style.top = `${cursorY}px`;
+    // ── Disclaimer / Footer ──
+    const disclaimerEl = document.querySelector('#disclaimer');
+    if (disclaimerEl) {
+        gsap.from('#disclaimer', {
+            scrollTrigger: { trigger: '#disclaimer', start: 'top 90%', toggleActions: 'restart none none reset' },
+            opacity: 0, y: 30, duration: 0.7, ease: 'power2.out'
+        });
     }
 
-    requestAnimationFrame(animateCursor);
-};
-animateCursor();
-
-// Hover Effects
-const hoverables = document.querySelectorAll('a, button, .btn-3d, .service-card, .portfolio-card, .pricing-card, .team-card, .filter-btn, .logo-container');
-hoverables.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        if (cursorOutline) cursorOutline.classList.add('cursor-hover');
-        if (cursorDot) cursorDot.classList.add('cursor-hover-dot');
+    // ── Global: Any remaining elements with .gs-fade-up class ──
+    gsap.utils.toArray('.gs-fade-up').forEach(el => {
+        gsap.to(el, {
+            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'restart none none reset' },
+            opacity: 1, y: 0, duration: 0.8, ease: 'power3.out'
+        });
     });
-    item.addEventListener('mouseleave', () => {
-        if (cursorOutline) cursorOutline.classList.remove('cursor-hover');
-        if (cursorDot) cursorDot.classList.remove('cursor-hover-dot');
-    });
-});
 
-
+    console.log('GSAP ScrollTrigger animations initialized');
+})();

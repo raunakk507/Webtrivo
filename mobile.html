@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>WEBTRIVO | Premium Web Engineering Studio</title>
+    <meta name="description" content="Webtrivo builds high-performance websites, custom web apps, and premium online stores for growing D2C brands. Based in India.">
+    <link rel="canonical" href="https://webtrivo.in/mobile.html">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Desktop Redirect Router -->
+    <script>
+        (function() {
+            function checkViewport() {
+                if (window.innerWidth >= 768) {
+                    window.location.replace("index.html");
+                }
+            }
+            checkViewport();
+            window.addEventListener('resize', checkViewport);
+        })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body class="dash-body">
+
+<!-- ── AMBIENT BLOBS ── -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- ══════════════════════════════════════
+     TOP NAV  (liquid glass)
+══════════════════════════════════════ -->
+<header class="dash-header">
+    <a href="mobile.html" class="dash-brand">
+        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <span>WEBTRIVO</span>
+    </a>
+    <div class="dash-header-right">
+        <a href="mobile-contact.html" class="dash-icon-btn" aria-label="Contact">
+            <i class="fa-regular fa-envelope"></i>
+        </a>
+    </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     FULL-SCREEN GLASS MENU DRAWER
+══════════════════════════════════════ -->
+<div class="menu-drawer" id="menuDrawer">
+    <button class="menu-close-btn" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+    <a href="mobile.html"          class="menu-link">Home</a>
+    <a href="mobile-services.html" class="menu-link">Services</a>
+    <a href="mobile-work.html"     class="menu-link">Our Work</a>
+    <a href="mobile-pricing.html"  class="menu-link">Pricing</a>
+    <a href="mobile-contact.html"  class="menu-link">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCROLL CANVAS
+══════════════════════════════════════ -->
+<main class="dash-scroll">
+
+    <!-- ── HERO CARD ── -->
+    <div class="d-card hero-card reveal">
+        <div class="hero-badge-sm" id="heroBadge">✦ PREMIUM WEB DESIGN</div>
+        <h1 class="hero-h1">
+            <span class="hl-blue" id="heroW1">Design.</span>
+            <span class="hl-dark" id="heroW2">Build.</span>
+            <span class="hl-blue" id="heroW3">Launch.</span>
+        </h1>
+        <p class="hero-sub" id="heroSub">Beautiful, high-converting websites for ambitious D2C brands.</p>
+        <div class="hero-ctas">
+            <a href="mobile-contact.html" class="cta-primary" id="heroGetQuote">
+                <i class="fa-solid fa-rocket"></i> Get Started
+            </a>
+            <a href="mobile-work.html" class="cta-ghost" id="heroViewWork">
+                <i class="fa-solid fa-images"></i> Explore Work
+            </a>
+        </div>
+
+        <!-- HERO PROJECTS CAROUSEL -->
+        <div class="hero-carousel-wrap">
+            <span class="carousel-lbl">✦ LIVE SYSTEMS</span>
+            <div class="hero-carousel">
+                <a href="mobile-work.html#trivoxs" class="hc-card" style="background: linear-gradient(135deg, rgba(45,140,255,0.06), rgba(11,92,255,0.06)); text-decoration: none; display: block;">
+                    <div class="hc-thumb-wrap">
+                        <img src="assets/img/trivoxs-hero.png" class="hc-thumb" alt="Trivoxs Store Preview" loading="lazy">
+                    </div>
+                    <div class="hc-header">
+                        <span class="hc-badge live">Shopify</span>
+                        <strong class="hc-speed"><i class="fa-solid fa-bolt"></i> 99 Score</strong>
+                    </div>
+                    <h4 class="hc-title">Trivoxs Store</h4>
+                    <p class="hc-desc">Modern D2C e-commerce setup built on Shopify OS 2.0.</p>
+                </a>
+                <a href="mobile-work.html#neonaudio" class="hc-card" style="background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(168,85,247,0.06)); text-decoration: none; display: block;">
+                    <div class="hc-thumb-wrap">
+                        <img src="assets/img/kingveen1.png" class="hc-thumb" alt="Neon Audio Preview" loading="lazy">
+                    </div>
+                    <div class="hc-header">
+                        <span class="hc-badge live">SaaS Portal</span>
+                        <strong class="hc-speed"><i class="fa-solid fa-bolt"></i> 98 Score</strong>
+                    </div>
+                    <h4 class="hc-title">Neon Audio</h4>
+                    <p class="hc-desc">Premium animated SaaS platform with custom web player.</p>
+                </a>
+                <a href="mobile-work.html#artisanhub" class="hc-card" style="background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(52,211,153,0.06)); text-decoration: none; display: block;">
+                    <div class="hc-thumb-wrap">
+                        <img src="assets/img/artisan1.png" class="hc-thumb" alt="Artisan Hub Preview" loading="lazy">
+                    </div>
+                    <div class="hc-header">
+                        <span class="hc-badge live">Web App</span>
+                        <strong class="hc-speed"><i class="fa-solid fa-bolt"></i> 99 Score</strong>
+                    </div>
+                    <h4 class="hc-title">Artisan Hub</h4>
+                    <p class="hc-desc">Creative booking system and design asset marketplace.</p>
+                </a>
+                <a href="mobile-work.html#beautystudio" class="hc-card" style="background: linear-gradient(135deg, rgba(236,72,153,0.06), rgba(244,114,182,0.06)); text-decoration: none; display: block;">
+                    <div class="hc-thumb-wrap">
+                        <img src="assets/img/beauty%20web.jpeg" class="hc-thumb" alt="Beauty Studio Preview" loading="lazy">
+                    </div>
+                    <div class="hc-header">
+                        <span class="hc-badge live">Three.js</span>
+                        <strong class="hc-speed"><i class="fa-solid fa-bolt"></i> 98 Score</strong>
+                    </div>
+                    <h4 class="hc-title">Beauty Studio</h4>
+                    <p class="hc-desc">Hyper-smooth 3D luxury aesthetic studio showcase.</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- INFINITE TECH MARQUEE -->
+    <div class="marquee-wrapper reveal">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <span class="m-badge"><i class="fa-brands fa-react" style="color:#61dafb;"></i> React</span>
+                <span class="m-badge"><i class="fa-brands fa-shopify" style="color:#95bf47;"></i> Shopify</span>
+                <span class="m-badge"><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Next.js</span>
+                <span class="m-badge"><i class="fa-brands fa-node-js" style="color:#68a063;"></i> Node.js</span>
+                <span class="m-badge"><i class="fa-solid fa-cloud" style="color:#000000;"></i> Vercel</span>
+                <span class="m-badge"><i class="fa-solid fa-code" style="color:#38bdf8;"></i> Tailwind</span>
+                <span class="m-badge"><i class="fa-solid fa-wind" style="color:#f43f5e;"></i> GSAP</span>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <span class="m-badge"><i class="fa-brands fa-react" style="color:#61dafb;"></i> React</span>
+                <span class="m-badge"><i class="fa-brands fa-shopify" style="color:#95bf47;"></i> Shopify</span>
+                <span class="m-badge"><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Next.js</span>
+                <span class="m-badge"><i class="fa-brands fa-node-js" style="color:#68a063;"></i> Node.js</span>
+                <span class="m-badge"><i class="fa-solid fa-cloud" style="color:#000000;"></i> Vercel</span>
+                <span class="m-badge"><i class="fa-solid fa-code" style="color:#38bdf8;"></i> Tailwind</span>
+                <span class="m-badge"><i class="fa-solid fa-wind" style="color:#f43f5e;"></i> GSAP</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── PROJECT ESTIMATOR CARD ── -->
+    <div class="d-card reveal estimator-card" style="padding: 14px 12px;">
+        <div class="card-header">
+            <span class="card-eyebrow">Interactive Estimator</span>
+            <span style="font-size: 0.65rem; font-weight: 700; color: #2D8CFF; background: rgba(45,140,255,0.08); padding: 3px 9px; border-radius: 50px;">Instant Quote</span>
+        </div>
+        <h2 class="card-title">Ready Your <span class="hl-blue">Website</span></h2>
+        
+        <!-- Tabs for Project Type -->
+        <div class="est-tabs" style="margin: 8px 0 12px;">
+            <button class="est-tab active" data-type="website">Landing Page</button>
+            <button class="est-tab" data-type="shopify">Shopify Store</button>
+            <button class="est-tab" data-type="app">Custom App</button>
+        </div>
+
+        <!-- Interactive Visual Choice Cards -->
+        <div class="estimator-questions" style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="question-group">
+                <label id="whatLabel" style="font-size: 0.72rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; display: block; letter-spacing: 0.2px;">SELECT SERVICE TYPE:</label>
+                
+                <!-- Visual Cards Grid -->
+                <div id="serviceGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <!-- Choice cards populated dynamically -->
+                </div>
+            </div>
+
+            <div class="question-group" style="margin-top: 2px;">
+                <label id="whenLabel" style="font-size: 0.72rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; display: block; letter-spacing: 0.2px;">LAUNCH TIMEFRAME:</label>
+                
+                <!-- Capsule Pills Flex Row -->
+                <div id="timeframeRow" style="display: flex; gap: 6px; width: 100%;">
+                    <!-- Timeframe pills populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Psychological Reassurance Badge -->
+        <div class="reassurance-badge" style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 12px; background: rgba(34, 197, 94, 0.06); padding: 5px; border-radius: 8px; border: 1px dashed rgba(34, 197, 94, 0.25);">
+            <i class="fa-solid fa-circle-check" style="color: #22c55e; font-size: 0.7rem;"></i>
+            <span style="font-size: 0.6rem; font-weight: 700; color: #15803d; letter-spacing: 0.1px;">⚡ 100% Speed Guarantee &amp; Lifetime Support Included</span>
+        </div>
+
+        <button type="button" class="cta-primary cta-block" style="display:flex; justify-content:center; align-items:center; gap:6px; width: 100%; margin-top:10px; font-size: 0.74rem; padding: 10px; border: none; cursor: pointer;" id="estCTA">
+            <i class="fa-solid fa-calculator"></i> Know the Price Website
+        </button>
+
+        <!-- Dynamic Pricing Reveal Block -->
+        <div id="pricingReveal" style="display: none; margin-top: 12px; padding-top: 12px; border-top: 1.2px dashed rgba(45, 140, 255, 0.2); flex-direction: column; gap: 12px; transition: all 0.3s ease;">
+            <!-- Premium Bento summary card -->
+            <div style="
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.4) 100%);
+                border: 1.2px solid rgba(45, 140, 255, 0.15);
+                border-radius: 16px;
+                padding: 14px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03), inset 0 1px 1px #ffffff;
+            ">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; animation: pulseGlow 1.8s infinite;"></span>
+                        <span style="font-size: 0.60rem; font-weight: 800; color: #64748b; letter-spacing: 0.5px; text-transform: uppercase;">Guaranteed Price</span>
+                    </div>
+                    <strong style="font-size: 1.05rem; color: #2D8CFF; font-weight: 900; background: rgba(45,140,255,0.08); padding: 3px 12px; border-radius: 50px; box-shadow: inset 0 1px 2px rgba(45,140,255,0.1);" id="baseValDisplay">₹12,999</strong>
+                </div>
+                
+                <div style="border-top: 1px solid rgba(45, 140, 255, 0.08); padding-top: 8px; display: flex; flex-direction: column; gap: 5px; font-size: 0.66rem; color: #475569;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #64748b; font-weight: 700;">Selected Setup:</span>
+                        <strong id="selectedServiceVal" style="color: #0f172a; font-weight: 800; background: rgba(15, 23, 42, 0.03); padding: 2px 8px; border-radius: 6px;">Lead Gen Page</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #64748b; font-weight: 700;">Launch Priority:</span>
+                        <strong id="selectedTimeframeVal" style="color: #0f172a; font-weight: 800; background: rgba(15, 23, 42, 0.03); padding: 2px 8px; border-radius: 6px;">Standard (2-3 Wks)</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary WhatsApp CTA (Premium Claymorphic Gradient) -->
+            <a href="#" target="_blank" class="cta-primary" style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                padding: 12px;
+                font-size: 0.76rem;
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                border: 1px solid rgba(16, 185, 129, 0.4);
+                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                color: white;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 800;
+                letter-spacing: 0.2px;
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            " id="whatsappCTA" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 8px 24px rgba(16, 185, 129, 0.38)';" onmouseout="this.style.transform='none'; this.style.boxShadow='0 6px 20px rgba(16, 185, 129, 0.32)';">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i> Send Brief &amp; Invoice to WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- ── SERVICES GRID CARD ── -->
+    <div class="d-card reveal d1">
+        <div class="card-header">
+            <span class="card-eyebrow">What We Do</span>
+            <a href="mobile-services.html" class="card-see-all" id="seeAllServices">See all <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <h2 class="card-title">Our <span class="hl-blue">Services</span></h2>
+        <div class="srv-grid">
+            <a href="mobile-services.html#webdesign" class="srv-chip" id="srvWebDesign">
+                <span class="srv-icon" style="background:#dbeafe;"><i class="fa-solid fa-pen-ruler" style="color:#2563eb;"></i></span>
+                <span>Web Design</span>
+            </a>
+            <a href="mobile-services.html#development" class="srv-chip" id="srvDev">
+                <span class="srv-icon" style="background:#dcfce7;"><i class="fa-solid fa-code" style="color:#16a34a;"></i></span>
+                <span>Development</span>
+            </a>
+            <a href="mobile-services.html#ecommerce" class="srv-chip" id="srvEcom">
+                <span class="srv-icon" style="background:#fef9c3;"><i class="fa-solid fa-bag-shopping" style="color:#ca8a04;"></i></span>
+                <span>E-Commerce</span>
+            </a>
+            <a href="mobile-services.html#seo" class="srv-chip" id="srvSEO">
+                <span class="srv-icon" style="background:#fce7f3;"><i class="fa-solid fa-magnifying-glass-chart" style="color:#db2777;"></i></span>
+                <span>SEO / Speed</span>
+            </a>
+            <a href="mobile-services.html#webapp" class="srv-chip" id="srvWebApp">
+                <span class="srv-icon" style="background:#ede9fe;"><i class="fa-solid fa-layer-group" style="color:#7c3aed;"></i></span>
+                <span>Web Apps</span>
+            </a>
+            <a href="mobile-services.html#branding" class="srv-chip" id="srvBranding">
+                <span class="srv-icon" style="background:#ffedd5;"><i class="fa-solid fa-palette" style="color:#ea580c;"></i></span>
+                <span>Branding</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ── simulated PAGE SPEED CARD ── -->
+    <div class="d-card reveal speed-card">
+        <div class="card-header">
+            <span class="card-eyebrow">Performance Core</span>
+            <span style="font-size: 0.65rem; font-weight: 700; color: #16a34a; background: rgba(22,163,74,0.1); padding: 3px 9px; border-radius: 50px;">Live Audit</span>
+        </div>
+        <h2 class="card-title">Blazing <span class="hl-blue">Fast Execution</span></h2>
+        
+        <div class="speed-gauge-container">
+            <div class="circular-progress-wrap">
+                <svg class="progress-ring" width="120" height="120">
+                    <circle class="progress-ring-bg" stroke="#f0f4ff" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                    <circle class="progress-ring-circle" id="speedCircle" stroke="#22c55e" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
+                </svg>
+                <div class="speed-score-box">
+                    <span id="speedScore" class="speed-score-num">0</span>
+                    <span class="speed-score-lbl">Mobile</span>
+                </div>
+            </div>
+            <div class="speed-metrics">
+                <div class="speed-met-item">
+                    <strong>99.9%</strong>
+                    <span>Core Vitals</span>
+                </div>
+                <div class="speed-met-item">
+                    <strong>0.4s</strong>
+                    <span>Load Speed</span>
+                </div>
+                <div class="speed-met-item">
+                    <strong>0.00</strong>
+                    <span>Layout Shift</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ── FEATURED CASE STUDY CARD (TRIVOXS) ── -->
+    <div class="d-card reveal featured-case-card" style="padding: 12px 10px;">
+        <div class="card-header">
+            <span class="card-eyebrow" style="color:#2D8CFF;"><i class="fa-solid fa-star"></i> Featured Case Study</span>
+            <span style="font-size: 0.62rem; font-weight: 700; color: #16a34a; background: rgba(22,163,74,0.08); padding: 2px 7px; border-radius: 50px;">Shopify OS 2.0</span>
+        </div>
+        <h2 class="card-title" style="margin-bottom: 4px; font-size: 1.1rem; line-height: 1.2;">TRIVOXS: High-Performance <span class="hl-blue">Shopify Engine</span></h2>
+        
+        <!-- Interactive Preview Frame with Floating Speed Badge -->
+        <div class="case-preview-wrap" style="margin-top: 4px;">
+            <div class="case-phone-frame">
+                <img src="assets/img/trivoxs-hero.png" alt="TRIVOXS Sneakers Website Showcase" class="case-img" loading="lazy">
+                <div class="case-speed-badge">
+                    <strong>98</strong>
+                    <span>SCORE</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="case-desc" style="font-size: 0.7rem; color: #475569; line-height: 1.4; margin: 6px 0;">We built a cinematic, GSAP-powered Shopify experience for TRIVOXS Sneakers. Featuring custom modular architecture and a seamless scroll-driven journey.</p>
+
+
+        <div class="case-ctas" style="display:grid; grid-template-columns: 1fr 1fr; gap:6px;">
+            <a href="https://trivoxs.netlify.app/" target="_blank" class="cta-primary" style="display:flex; justify-content:center; align-items:center; font-size:0.7rem; padding: 6px 4px;" id="caseDemoBtn">
+                <i class="fa-solid fa-paper-plane" style="font-size:0.65rem; margin-right:4px;"></i> Live Demo
+            </a>
+            <a href="mobile-contact.html?ref=trivoxs" class="cta-ghost" style="display:flex; justify-content:center; align-items:center; font-size:0.7rem; padding: 6px 4px; border: 1.2px solid rgba(45,140,255,0.25); color:#2D8CFF;" id="caseMigrateBtn">
+                <i class="fa-solid fa-rocket" style="font-size:0.65rem; margin-right:4px;"></i> Migration Info
+            </a>
+        </div>
+    </div>
+
+    <!-- ── FEATURED PROJECTS CARD ── -->
+    <div class="d-card reveal d2">
+        <div class="card-header">
+            <span class="card-eyebrow">Our Portfolio</span>
+            <a href="mobile-work.html" class="card-see-all" id="seeAllWork">See all <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <h2 class="card-title">Featured <span class="hl-blue">Projects</span></h2>
+        <div class="proj-list">
+            <a href="mobile-work.html" class="proj-item" id="projItem1">
+                <span class="proj-dot" style="background: linear-gradient(135deg,#2D8CFF,#0B5CFF);"><i class="fa-solid fa-bag-shopping"></i></span>
+                <div class="proj-info">
+                    <strong>D2C Brand Website</strong>
+                    <span>Full-stack + Shopify</span>
+                </div>
+                <span class="proj-badge live">Live</span>
+            </a>
+            <a href="mobile-work.html" class="proj-item" id="projItem2">
+                <span class="proj-dot" style="background: linear-gradient(135deg,#7c3aed,#a855f7);"><i class="fa-solid fa-layer-group"></i></span>
+                <div class="proj-info">
+                    <strong>SaaS Landing Page</strong>
+                    <span>React + Animations</span>
+                </div>
+                <span class="proj-badge live">Live</span>
+            </a>
+            <a href="mobile-work.html" class="proj-item" id="projItem3">
+                <span class="proj-dot" style="background: linear-gradient(135deg,#16a34a,#4ade80);"><i class="fa-solid fa-utensils"></i></span>
+                <div class="proj-info">
+                    <strong>Restaurant Platform</strong>
+                    <span>Next.js + CMS</span>
+                </div>
+                <span class="proj-badge wip">In Progress</span>
+            </a>
+            <a href="mobile-work.html" class="proj-item" id="projItem4">
+                <span class="proj-dot" style="background: linear-gradient(135deg,#f59e0b,#fcd34d);"><i class="fa-solid fa-palette"></i></span>
+                <div class="proj-info">
+                    <strong>Portfolio Studio</strong>
+                    <span>GSAP + Three.js</span>
+                </div>
+                <span class="proj-badge live">Live</span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ── PROCESS MINI CARD ── -->
+    <div class="d-card reveal d4">
+        <div class="card-header">
+            <span class="card-eyebrow">Our Pipeline</span>
+            <a href="mobile-services.html" class="card-see-all" id="seeAllProcess">Details <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <h2 class="card-title">How We <span class="hl-blue">Work</span></h2>
+        <div class="pipe-list">
+            <div class="pipe-step" id="step1">
+                <div class="pipe-num">01</div>
+                <div class="pipe-text">
+                    <strong><i class="fa-solid fa-lightbulb" style="color:var(--blue);"></i> Discovery</strong>
+                    <p>Map goals, audience & tech requirements.</p>
+                </div>
+            </div>
+            <div class="pipe-step" id="step2">
+                <div class="pipe-num">02</div>
+                <div class="pipe-text">
+                    <strong><i class="fa-solid fa-pen-nib" style="color:var(--blue);"></i> UI/UX Design</strong>
+                    <p>Stunning wireframes & conversion-led interfaces.</p>
+                </div>
+            </div>
+            <div class="pipe-step" id="step3">
+                <div class="pipe-num">03</div>
+                <div class="pipe-text">
+                    <strong><i class="fa-solid fa-code" style="color:var(--blue);"></i> Engineering</strong>
+                    <p>Clean, scalable code — blazing fast on all devices.</p>
+                </div>
+            </div>
+            <div class="pipe-step" id="step4">
+                <div class="pipe-num">04</div>
+                <div class="pipe-text">
+                    <strong><i class="fa-solid fa-rocket" style="color:var(--blue);"></i> Launch & Scale</strong>
+                    <p>Deploy, monitor & grow your digital infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TEAM SECTION (Minds Behind Webtrivo) ── -->
+    <div class="d-card reveal d1" style="margin-top: 24px;">
+        <div class="card-header">
+            <span class="card-eyebrow">The Creators</span>
+        </div>
+        <h2 class="card-title">Minds Behind <span class="hl-blue">WEBTRIVO</span></h2>
+        <p style="font-size:0.88rem; color:var(--text-light); margin-top:-6px; margin-bottom:20px; text-align:center;">A passionate team delivering big results</p>
+        
+        <div class="mobile-team-grid">
+            <!-- Member 1: Praveen -->
+            <div class="mobile-team-card">
+                <div class="m-team-avatar-container">
+                    <img src="assets/img/PRAVEEN(TEAM1).png" alt="Praveen - Founder & Principal Engineer" class="m-team-img">
+                </div>
+                <h4 class="m-team-name">PRAVEEN</h4>
+                <p class="m-team-role">Founder & Principal Engineer</p>
+                <p class="m-team-bio">Passionate about building digital products that solve real business problems.</p>
+                <div class="m-team-socials">
+                    <a href="https://www.linkedin.com/in/kingveenstudio" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Member 2: Raunak -->
+            <div class="mobile-team-card">
+                <div class="m-team-avatar-container">
+                    <img src="assets/img/RAUNAK(TEAM2).png" alt="Raunak - Co-Founder" class="m-team-img">
+                </div>
+                <h4 class="m-team-name">Raunak</h4>
+                <p class="m-team-role">Co-Founder</p>
+                <p class="m-team-bio">Crafting beautiful interfaces and stunning visual experiences for every platform.</p>
+                <div class="m-team-socials">
+                    <a href="https://www.linkedin.com/in/raunak-ray-235901400?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/its_justt_raunak/?utm_source=ig_web_button_share_sheet" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Member 3: Md Arman -->
+            <div class="mobile-team-card">
+                <div class="m-team-avatar-container">
+                    <img src="assets/img/MD ARMAN (TEAM3).png" alt="Md Arman - Technical Lead" class="m-team-img">
+                </div>
+                <h4 class="m-team-name">Md Arman</h4>
+                <p class="m-team-role">Technical Lead</p>
+                <p class="m-team-bio">Leading the engineering team to build scalable, high-performance digital infrastructure for global brands.</p>
+                <div class="m-team-socials">
+                    <a href="https://www.linkedin.com/in/md-arman-a8a5b2302" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer class="dash-footer">
+        <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+        <h3>WEBTRIVO</h3>
+        <p>Building digital empires through world-class design & engineering.</p>
+        <div class="dash-socials">
+            <a href="https://wa.me/919229840686"                               target="_blank" id="footerWA"><i class="fa-brands fa-whatsapp"  style="color:#25d366;"></i></a>
+            <a href="https://www.instagram.com/webtrivo.in"                    target="_blank" id="footerIG"><i class="fa-brands fa-instagram" style="color:#e4405f;"></i></a>
+            <a href="https://www.linkedin.com/in/webtrivo-in-bb3018407"        target="_blank" id="footerLI"><i class="fa-brands fa-linkedin"  style="color:#0077b5;"></i></a>
+        </div>
+        <p class="dash-copy">© 2026 WEBTRIVO · BUILD • RENDER • ELEVATE</p>
+    </footer>
+
+</main><!-- end dash-scroll -->
+
+<!-- Floating Glass WhatsApp Button -->
+<a href="#" class="floating-wa-btn" id="floatingWABtn" aria-label="WhatsApp Concierge">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-ping-dot"></span>
+</a>
+
+<!-- Translucent WhatsApp Drawer Overlay and Panel -->
+<div class="wa-drawer-overlay" id="waDrawerOverlay"></div>
+<div class="wa-drawer" id="waDrawer">
+    <div class="wa-drawer-header">
+        <div class="wa-agent-info">
+            <img src="assets/img/brand-logo.png" class="wa-agent-logo" alt="Webtrivo agent">
+            <div class="wa-agent-text">
+                <strong>Webtrivo Concierge</strong>
+                <span>⚡ Online · Replies in 5 mins</span>
+            </div>
+        </div>
+        <button class="wa-drawer-close" id="waDrawerClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="wa-drawer-body">
+        <p class="wa-welcome">Hi! Choose a custom template below to chat directly with our lead engineer on WhatsApp:</p>
+        
+        <div class="wa-templates">
+            <button class="wa-tpl-btn" data-msg="Hey Webtrivo! I'm looking to upgrade my website speed to under 1s. Can you inspect it?">
+                <span class="tpl-icon">⚡</span>
+                <div class="tpl-info">
+                    <strong>Inspect My Site Speed</strong>
+                    <span>Enquire about performance tuning</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="wa-tpl-btn" data-msg="Hey Webtrivo! I'm interested in building a high-converting Shopify store for my D2C brand. Do you have slots available?">
+                <span class="tpl-icon">🛒</span>
+                <div class="tpl-info">
+                    <strong>Custom Shopify Build</strong>
+                    <span>Enquire about D2C e-commerce stores</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="wa-tpl-btn" data-msg="Hey Webtrivo! I have a custom web application idea. Can we schedule a quick 15-minute strategy call?">
+                <span class="tpl-icon">📅</span>
+                <div class="tpl-info">
+                    <strong>Schedule 15-Min Strategy Call</strong>
+                    <span>Book a strategy call on Zoom/GMeet</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ══════════════════════════════════════
+     COMPACT PILL BOTTOM NAV
+══════════════════════════════════════ -->
+<nav class="pill-nav" id="pillNav">
+    <a href="mobile.html"          class="pn-item active" data-sec="home"     id="pnHome">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span>Home</span>
+    </a>
+    <a href="mobile-work.html"     class="pn-item"        data-sec="work"     id="pnWork">
+        <i class="fa-regular fa-folder-open"></i>
+        <span>Projects</span>
+    </a>
+    <a href="mobile-services.html" class="pn-item"        data-sec="services" id="pnServices">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Services</span>
+    </a>
+    <a href="mobile-pricing.html"  class="pn-item"        data-sec="pricing"  id="pnPricing">
+        <i class="fa-solid fa-tag"></i>
+        <span>Pricing</span>
+    </a>
+    <a href="mobile-contact.html"  class="pn-item"        data-sec="contact"  id="pnContact">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>Contact</span>
+    </a>
+</nav>
+
+<!-- ── DYNAMIC SHARE GUIDE OVERLAY ── -->
+<div id="shareGuideOverlay" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10000;
+    align-items: flex-end;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+">
+    <div id="shareGuideDrawer" style="
+        background: #ffffff;
+        border-radius: 24px 24px 0 0;
+        width: 100%;
+        max-width: 480px;
+        padding: 20px 16px 30px;
+        box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.15);
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+    ">
+        <!-- Drawer drag handle -->
+        <div style="width: 36px; height: 4px; background: #cbd5e1; border-radius: 2px; align-self: center;"></div>
+        
+        <!-- Header -->
+        <div style="text-align: center;">
+            <h3 style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin: 0 0 4px;">Share Estimate Invoice</h3>
+            <p id="shareGuideFileLabel" style="font-size: 0.65rem; color: #64748b; margin: 0;">Webtrivo-Invoice.pdf (7.6 KB)</p>
+        </div>
+
+        <!-- Animated Mock Menu Area -->
+        <div style="background: #f8fafc; border: 1.2px solid #e2e8f0; border-radius: 16px; padding: 22px 12px; position: relative; display: flex; flex-direction: column; gap: 14px;">
+            <span style="font-size: 0.58rem; font-weight: 800; color: #94a3b8; letter-spacing: 0.5px; text-transform: uppercase; text-align: center;">Share Using App</span>
+            
+            <div style="display: flex; justify-content: space-around; align-items: center; position: relative;">
+                <!-- Mock Option 1: Quick Share -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.5; filter: grayscale(1);">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #cbd5e1; display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:white;">⚡</div>
+                    <span style="font-size: 0.55rem; font-weight: 700; color: #64748b;">Quick Share</span>
+                </div>
+                
+                <!-- Mock Option 2: WhatsApp (Highlighted Option) -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; z-index: 2;">
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background: #25d366; display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:white; box-shadow: 0 4px 12px rgba(37,211,102,0.3); border: 2px solid white; animation: pulseGlow 1.8s infinite;">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <span style="font-size: 0.58rem; font-weight: 800; color: #25d366;">WhatsApp</span>
+                </div>
+
+                <!-- Mock Option 3: Outlook -->
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; opacity: 0.5; filter: grayscale(1);">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; background: #cbd5e1; display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:white;">✉️</div>
+                    <span style="font-size: 0.55rem; font-weight: 700; color: #64748b;">Outlook</span>
+                </div>
+            </div>
+
+            <!-- Bouncing Pointer Arrow Animation -->
+            <div style="
+                position: absolute;
+                top: -12px;
+                left: calc(50% - 12px);
+                font-size: 1.6rem;
+                color: #2D8CFF;
+                animation: pointerBounce 0.8s infinite alternate;
+                z-index: 10;
+            ">
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+        </div>
+
+        <!-- Dynamic Action CTA -->
+        <button id="launchShareBtn" class="cta-primary cta-block" style="width: 100%; border: none; padding: 11px; font-size: 0.74rem; display: flex; justify-content: center; align-items: center; gap: 6px; cursor: pointer;">
+            <i class="fa-solid fa-square-share-nodes"></i> Got It, Open Menu
+        </button>
+    </div>
+</div>
+
+<!-- Custom Keyframes Style Injection -->
+<style>
+@keyframes pointerBounce {
+    from { transform: translateY(-4px); }
+    to { transform: translateY(4px); }
+}
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="assets/js/mobile.js"></script>
+
+</body>
+</html>
