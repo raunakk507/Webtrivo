@@ -465,112 +465,112 @@ setTimeout(hideLoader, 3000);
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 
-    // ── Section Headers: Blur-in from bottom ──
+    // ── Section Headers: Blur-in + 3D Tilt from bottom ──
     gsap.utils.toArray('.section-header').forEach(header => {
         gsap.from(header, {
             scrollTrigger: { trigger: header, start: 'top 85%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 50, filter: 'blur(8px)', duration: 0.9, ease: 'power3.out'
+            opacity: 0, y: 70, rotationX: 15, transformPerspective: 1000, filter: 'blur(8px)', duration: 1.1, ease: 'power4.out'
         });
     });
 
-    // ── Service Cards: Individual scale-in ──
+    // ── Service Cards: Premium 3D Swing-up ──
     gsap.utils.toArray('.service-card, .partnership-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, scale: 0.8, y: 40, duration: 0.7, ease: 'back.out(1.4)'
+            opacity: 0, y: 100, z: -100, rotationX: 25, rotationY: -10, transformPerspective: 1000, duration: 1.0, ease: 'power4.out'
         });
     });
 
-    // ── Portfolio Cards: Individual fade up ──
+    // ── Portfolio Cards: Deep 3D Zoom-in and Tilt ──
     gsap.utils.toArray('.portfolio-card, .case-study-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 50, duration: 0.8, ease: 'power3.out'
+            opacity: 0, y: 120, z: -150, rotationX: -18, scale: 0.88, transformPerspective: 1200, duration: 1.1, ease: 'power4.out'
         });
     });
 
-    // ── Process Steps: Individual slide from left ──
+    // ── Process Steps: 3D Flip from Left ──
     gsap.utils.toArray('.process-card, .process-step, [id="process"] .glass-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, x: -50, duration: 0.7, ease: 'power2.out'
+            opacity: 0, x: -100, z: -80, rotationY: -35, transformPerspective: 1000, duration: 0.9, ease: 'power3.out'
         });
     });
 
-    // ── Why Us Cards ──
+    // ── Why Us Cards: 3D Swing from Right ──
     gsap.utils.toArray('#why-us .glass-card, #why-us .service-card, #why-us .why-item, #why-us [class*="card"]').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 50, scale: 0.9, duration: 0.7, ease: 'power3.out'
+            opacity: 0, y: 90, z: -100, rotationX: 20, rotationY: 12, transformPerspective: 1000, duration: 1.0, ease: 'power4.out'
         });
     });
 
-    // ── Insight Cards ──
+    // ── Insight Cards: 3D Fly-in ──
     gsap.utils.toArray('#insights [class*="card"], #insights .insight-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 40, duration: 0.7, ease: 'power2.out'
+            opacity: 0, y: 100, z: -80, rotationX: -15, transformPerspective: 1000, duration: 0.9, ease: 'power3.out'
         });
     });
 
-    // ── Stats Counters: Scale pop ──
+    // ── Stats Counters: Dynamic 3D Spinner Pop ──
     gsap.utils.toArray('#stats .counter, #stats [class*="stat"]').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, scale: 0.5, duration: 0.6, ease: 'back.out(2)'
+            opacity: 0, scale: 0.4, z: -150, rotationY: 180, transformPerspective: 800, duration: 1.0, ease: 'back.out(1.5)'
         });
     });
 
-    // ── Pricing Cards: Staggered rise ──
+    // ── Pricing Cards: 3D Step-up ──
     gsap.utils.toArray('.pricing-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 60, duration: 0.8, ease: 'power3.out'
+            opacity: 0, y: 140, z: -120, rotationX: 30, transformPerspective: 1200, duration: 1.2, ease: 'power4.out'
         });
     });
 
-    // ── Team Cards: Scale + rotate slight ──
+    // ── Team Cards: 3D Profile Flip ──
     gsap.utils.toArray('.team-card').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, scale: 0.85, rotation: 2, duration: 0.7, ease: 'power3.out'
+            opacity: 0, scale: 0.88, z: -100, rotationY: 25, rotationX: 10, transformPerspective: 1000, duration: 1.0, ease: 'power3.out'
         });
     });
 
-    // ── FAQ Items: Slide from right ──
+    // ── FAQ Items: 3D Page Swing ──
     gsap.utils.toArray('#faq .faq-item, #faq [class*="faq"]').forEach(card => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: 'top 88%', toggleActions: 'restart none none reset' },
-            opacity: 0, x: 40, duration: 0.6, ease: 'power2.out'
+            opacity: 0, x: 80, z: -50, rotationY: 20, transformPerspective: 1000, duration: 0.8, ease: 'power2.out'
         });
     });
 
-    // ── Contact Section ──
+    // ── Contact Section: 3D Form Rise ──
     const contactEl = document.querySelector('#contact');
     if (contactEl) {
         gsap.from('#contact .section-header', {
             scrollTrigger: { trigger: '#contact', start: 'top 80%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 40, duration: 0.8, ease: 'power3.out'
+            opacity: 0, y: 50, rotationX: 15, transformPerspective: 1000, duration: 1.0, ease: 'power3.out'
         });
         gsap.from('#contact .glass-card, #contact form', {
             scrollTrigger: { trigger: '#contact', start: 'top 70%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 50, scale: 0.95, duration: 0.9, ease: 'power3.out', delay: 0.2
+            opacity: 0, y: 100, z: -100, rotationX: 20, transformPerspective: 1200, duration: 1.2, ease: 'power4.out', delay: 0.2
         });
     }
 
-    // ── About / Featured Work section ──
+    // ── About / Featured Work section: 3D Rise ──
     const aboutEl = document.querySelector('#about');
     if (aboutEl) {
         gsap.from('#about', {
             scrollTrigger: { trigger: '#about', start: 'top 80%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 50, duration: 1, ease: 'power3.out'
+            opacity: 0, y: 80, z: -80, rotationX: 12, transformPerspective: 1000, duration: 1.2, ease: 'power3.out'
         });
     }
     const featuredEl = document.querySelector('#featured-work');
     if (featuredEl) {
         gsap.from('#featured-work', {
             scrollTrigger: { trigger: '#featured-work', start: 'top 80%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 60, duration: 1, ease: 'power3.out'
+            opacity: 0, y: 90, z: -100, rotationX: 15, transformPerspective: 1000, duration: 1.2, ease: 'power3.out'
         });
     }
 
@@ -579,7 +579,7 @@ setTimeout(hideLoader, 3000);
     if (disclaimerEl) {
         gsap.from('#disclaimer', {
             scrollTrigger: { trigger: '#disclaimer', start: 'top 90%', toggleActions: 'restart none none reset' },
-            opacity: 0, y: 30, duration: 0.7, ease: 'power2.out'
+            opacity: 0, y: 40, duration: 0.8, ease: 'power2.out'
         });
     }
 
@@ -591,5 +591,51 @@ setTimeout(hideLoader, 3000);
         });
     });
 
-    console.log('GSAP ScrollTrigger animations initialized');
+    // ── 3. INTERACTIVE 3D MOUSE PARALLAX TILT HOVER EFFECT (DESKTOP) ──
+    if (window.innerWidth >= 992) {
+        document.querySelectorAll('.service-card, .portfolio-card, .pricing-card, .team-card, .partnership-card, .case-study-card, .process-card, .process-step, #why-us .glass-card, #insights .glass-card').forEach(card => {
+            // Ensure proper parent perspective and border composure
+            card.style.transformStyle = 'preserve-3d';
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Tilt limits: Max 12 degrees
+                const tiltX = ((centerY - y) / centerY) * 12;
+                const tiltY = ((x - centerX) / centerX) * 12;
+                
+                gsap.to(card, {
+                    rotationX: tiltX,
+                    rotationY: tiltY,
+                    transformPerspective: 1000,
+                    scale: 1.04,
+                    z: 15,
+                    boxShadow: '0 20px 40px rgba(45, 140, 255, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06)',
+                    ease: 'power2.out',
+                    duration: 0.3,
+                    overwrite: 'auto'
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    scale: 1,
+                    z: 0,
+                    boxShadow: '',
+                    ease: 'power2.out',
+                    duration: 0.5,
+                    overwrite: 'auto'
+                });
+            });
+        });
+    }
+
+    console.log('Premium 3D ScrollTrigger & Mouse Parallax Tilt Hover engines initialized');
 })();
