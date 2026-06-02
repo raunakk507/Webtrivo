@@ -1490,24 +1490,18 @@
     100% { background-position: 0% 50%; }
 }
 
-.d-card,
-.hc-card,
-.mobile-team-card,
-.faq-item,
-.project-card,
-.adv-card,
-.pricing-hero-card {
+.hero-card,
+.pricing-hero-card,
+.featured-case-card,
+.project-card {
     position: relative !important;
     z-index: 1;
 }
 
-.d-card::after,
-.hc-card::after,
-.mobile-team-card::after,
-.faq-item::after,
-.project-card::after,
-.adv-card::after,
-.pricing-hero-card::after {
+.hero-card::after,
+.pricing-hero-card::after,
+.featured-case-card::after,
+.project-card::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;

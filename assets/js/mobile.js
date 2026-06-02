@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ── 5. DYNAMIC SCROLL REVEAL ENGINE ── */
-    const revealTargets = document.querySelectorAll('.d-card, .hc-card, .mobile-team-card, .faq-item, .pricing-hero-card, .m-sec-title, h1, h2, h3, .project-card, .adv-card');
+    const revealTargets = document.querySelectorAll('.d-card, .mobile-team-card, .faq-item, .pricing-hero-card, .m-sec-title, h1, h2, h3, .project-card, .adv-card');
     
     // Group elements by their parent container to apply automatic stagger delays
     const groups = new Map();
