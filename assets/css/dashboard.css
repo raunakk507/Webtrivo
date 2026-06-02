@@ -1490,7 +1490,6 @@
     100% { background-position: 0% 50%; }
 }
 
-.hero-card,
 .pricing-hero-card,
 .featured-case-card,
 .project-card {
@@ -1498,7 +1497,6 @@
     z-index: 1;
 }
 
-.hero-card::after,
 .pricing-hero-card::after,
 .featured-case-card::after,
 .project-card::after {
