@@ -7,20 +7,20 @@
     <meta name="description" content="Webtrivo builds high-performance websites, custom web apps, and premium online stores for growing D2C brands. Based in India.">
     <link rel="canonical" href="https://webtrivo.in/mobile.html">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.webp">
     <link rel="manifest" href="manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Desktop Redirect Router -->
     <script>
@@ -50,7 +50,7 @@
 ══════════════════════════════════════ -->
 <header class="dash-header">
     <a href="mobile.html" class="dash-brand">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <img src="assets/img/brand-logo.webp" alt="WEBTRIVO logo">
         <span>WEBTRIVO</span>
     </a>
     <div class="dash-header-right">
@@ -101,7 +101,7 @@
             <div class="hero-carousel">
                 <a href="mobile-work.html#trivoxs" class="hc-card" style="background: linear-gradient(135deg, rgba(45,140,255,0.06), rgba(11,92,255,0.06)); text-decoration: none; display: block;">
                     <div class="hc-thumb-wrap">
-                        <img src="assets/img/trivoxs-hero.png" class="hc-thumb" alt="Trivoxs Store Preview" loading="lazy">
+                        <img src="assets/img/trivoxs-hero.webp" class="hc-thumb" alt="Trivoxs Store Preview" loading="lazy">
                     </div>
                     <div class="hc-header">
                         <span class="hc-badge live">Shopify</span>
@@ -112,7 +112,7 @@
                 </a>
                 <a href="mobile-work.html#neonaudio" class="hc-card" style="background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(168,85,247,0.06)); text-decoration: none; display: block;">
                     <div class="hc-thumb-wrap">
-                        <img src="assets/img/kingveen1.png" class="hc-thumb" alt="Neon Audio Preview" loading="lazy">
+                        <img src="assets/img/kingveen1.webp" class="hc-thumb" alt="Neon Audio Preview" loading="lazy">
                     </div>
                     <div class="hc-header">
                         <span class="hc-badge live">SaaS Portal</span>
@@ -123,7 +123,7 @@
                 </a>
                 <a href="mobile-work.html#artisanhub" class="hc-card" style="background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(52,211,153,0.06)); text-decoration: none; display: block;">
                     <div class="hc-thumb-wrap">
-                        <img src="assets/img/artisan1.png" class="hc-thumb" alt="Artisan Hub Preview" loading="lazy">
+                        <img src="assets/img/artisan1.webp" class="hc-thumb" alt="Artisan Hub Preview" loading="lazy">
                     </div>
                     <div class="hc-header">
                         <span class="hc-badge live">Web App</span>
@@ -134,7 +134,7 @@
                 </a>
                 <a href="mobile-work.html#beautystudio" class="hc-card" style="background: linear-gradient(135deg, rgba(236,72,153,0.06), rgba(244,114,182,0.06)); text-decoration: none; display: block;">
                     <div class="hc-thumb-wrap">
-                        <img src="assets/img/beauty%20web.jpeg" class="hc-thumb" alt="Beauty Studio Preview" loading="lazy">
+                        <img src="assets/img/beauty%20web.webp" class="hc-thumb" alt="Beauty Studio Preview" loading="lazy">
                     </div>
                     <div class="hc-header">
                         <span class="hc-badge live">Three.js</span>
@@ -318,11 +318,7 @@
         <h2 class="card-title">Blazing <span class="hl-blue">Fast Execution</span></h2>
         
         <div class="speed-gauge-container">
-            <div class="circular-progress-wrap">
-                <svg class="progress-ring" width="120" height="120">
-                    <circle class="progress-ring-bg" stroke="#f0f4ff" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
-                    <circle class="progress-ring-circle" id="speedCircle" stroke="#22c55e" stroke-width="8" fill="transparent" r="50" cx="60" cy="60" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
-                </svg>
+            <div class="loader">
                 <div class="speed-score-box">
                     <span id="speedScore" class="speed-score-num">0</span>
                     <span class="speed-score-lbl">Mobile</span>
@@ -357,7 +353,7 @@
         <!-- Interactive Preview Frame with Floating Speed Badge -->
         <div class="case-preview-wrap" style="margin-top: 4px;">
             <div class="case-phone-frame">
-                <img src="assets/img/trivoxs-hero.png" alt="TRIVOXS Sneakers Website Showcase" class="case-img" loading="lazy">
+                <img src="assets/img/trivoxs-hero.webp" alt="TRIVOXS Sneakers Website Showcase" class="case-img" loading="lazy">
                 <div class="case-speed-badge">
                     <strong>98</strong>
                     <span>SCORE</span>
@@ -473,7 +469,7 @@
             <!-- Member 1: Praveen -->
             <div class="mobile-team-card">
                 <div class="m-team-avatar-container">
-                    <img src="assets/img/PRAVEEN(TEAM1).png" alt="Praveen - Founder & Principal Engineer" class="m-team-img">
+                    <img src="assets/img/PRAVEEN(TEAM1).webp" alt="Praveen - Founder & Principal Engineer" class="m-team-img">
                 </div>
                 <h4 class="m-team-name">PRAVEEN</h4>
                 <p class="m-team-role">Founder & Principal Engineer</p>
@@ -486,7 +482,7 @@
             <!-- Member 2: Raunak -->
             <div class="mobile-team-card">
                 <div class="m-team-avatar-container">
-                    <img src="assets/img/RAUNAK(TEAM2).png" alt="Raunak - Co-Founder" class="m-team-img">
+                    <img src="assets/img/RAUNAK(TEAM2).webp" alt="Raunak - Co-Founder" class="m-team-img">
                 </div>
                 <h4 class="m-team-name">Raunak</h4>
                 <p class="m-team-role">Co-Founder</p>
@@ -500,7 +496,7 @@
             <!-- Member 3: Md Arman -->
             <div class="mobile-team-card">
                 <div class="m-team-avatar-container">
-                    <img src="assets/img/MD ARMAN (TEAM3).png" alt="Md Arman - Technical Lead" class="m-team-img">
+                    <img src="assets/img/MD ARMAN (TEAM3).webp" alt="Md Arman - Technical Lead" class="m-team-img">
                 </div>
                 <h4 class="m-team-name">Md Arman</h4>
                 <p class="m-team-role">Technical Lead</p>
@@ -514,7 +510,7 @@
 
     <!-- ── FOOTER ── -->
     <footer class="dash-footer">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+        <img src="assets/img/brand-logo.webp" alt="WEBTRIVO">
         <h3>WEBTRIVO</h3>
         <p>Building digital empires through world-class design & engineering.</p>
         <div class="dash-socials">
@@ -538,7 +534,7 @@
 <div class="wa-drawer" id="waDrawer">
     <div class="wa-drawer-header">
         <div class="wa-agent-info">
-            <img src="assets/img/brand-logo.png" class="wa-agent-logo" alt="Webtrivo agent">
+            <img src="assets/img/brand-logo.webp" class="wa-agent-logo" alt="Webtrivo agent">
             <div class="wa-agent-text">
                 <strong>Webtrivo Concierge</strong>
                 <span>⚡ Online · Replies in 5 mins</span>
@@ -704,7 +700,6 @@
 }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="assets/js/mobile.js"></script>
 
 </body>

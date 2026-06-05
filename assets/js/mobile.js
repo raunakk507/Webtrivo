@@ -2,6 +2,27 @@
    WEBTRIVO MOBILE.JS — White Minimal Glass Template
    ============================================================ */
 
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.transition = 'opacity 0.8s ease-out';
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 800);
+    }
+}
+
+// Check if page is already loaded
+if (document.readyState === 'complete') {
+    hideLoader();
+} else {
+    window.addEventListener('load', hideLoader);
+}
+
+// Failsafe: Hide loader if stuck after 2 seconds
+setTimeout(hideLoader, 2000);
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ── 1. HAMBURGER MENU ── */
@@ -176,11 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(e => {
             if (e.isIntersecting) {
                 e.target.classList.add('show');
-            } else {
-                // Reset when element goes completely out of view below viewport
-                if (e.boundingClientRect.top > window.innerHeight) {
-                    e.target.classList.remove('show');
-                }
+                revealObs.unobserve(e.target); // Performance optimization: stop observing once revealed
             }
         });
     }, { 
@@ -195,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const speedCircle = document.getElementById('speedCircle');
     const speedCard = document.querySelector('.speed-card');
 
-    if (speedScore && speedCircle && speedCard) {
+    if (speedScore && speedCard) {
         const animateSpeedGauge = () => {
             let current = 0;
             const target = 100;
@@ -216,14 +233,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 speedScore.textContent = currentVal;
                 
                 // Circular stroke-dashoffset transition
-                const offset = circumference - (easeProgress * circumference);
-                speedCircle.style.strokeDashoffset = offset;
+                if (speedCircle) {
+                    const offset = circumference - (easeProgress * circumference);
+                    speedCircle.style.strokeDashoffset = offset;
+                }
 
                 if (progress < 1) {
                     requestAnimationFrame(updateGauge);
                 } else {
                     speedScore.textContent = target;
-                    speedCircle.style.strokeDashoffset = 0;
+                    if (speedCircle) {
+                        speedCircle.style.strokeDashoffset = 0;
+                    }
                 }
             };
 
@@ -663,6 +684,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        const loadjsPDF = (callback) => {
+            if (window.jspdf) {
+                callback();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+            script.async = true;
+            script.onload = () => {
+                callback();
+            };
+            script.onerror = () => {
+                console.error("Failed to load jsPDF library");
+            };
+            document.head.appendChild(script);
+        };
+
         if (launchShareBtn) {
             launchShareBtn.addEventListener('click', () => {
                 dismissShareGuide();
@@ -670,30 +708,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 const exactPrice = Math.round(selectedBasePrice * selectedMultiplier);
                 const categoryLabel = activeType === 'website' ? 'Landing Page' : activeType === 'shopify' ? 'Shopify Store' : 'Custom Web App';
                 
-                generateInvoicePDF(categoryLabel, selectedServiceText, selectedTimeframeText, exactPrice, (pdfBlob) => {
-                    const filename = `Webtrivo-${selectedServiceText.replace(/\s+/g, '-')}-Invoice.pdf`;
-                    const pdfFile = new File([pdfBlob], filename, { type: 'application/pdf' });
-                    
-                    const shareText = `Hi Webtrivo! 🚀\n\nI just designed a custom project brief on your website estimator:\n\n• Project Category: ${categoryLabel}\n• Service Needed: ${selectedServiceText}\n• Timeline Priority: ${selectedTimeframeText}\n• Guaranteed Price: ₹${exactPrice.toLocaleString('en-IN')}\n\nPlease review my attached official estimate invoice! 📈`;
+                // Show loading state
+                const originalHTML = launchShareBtn.innerHTML;
+                launchShareBtn.disabled = true;
+                launchShareBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating Invoice...`;
+                
+                loadjsPDF(() => {
+                    generateInvoicePDF(categoryLabel, selectedServiceText, selectedTimeframeText, exactPrice, (pdfBlob) => {
+                        // Restore button state
+                        launchShareBtn.disabled = false;
+                        launchShareBtn.innerHTML = originalHTML;
 
-                    // Check if native sharing of files is supported (Web Share API Level 2)
-                    if (navigator.canShare && navigator.canShare({ files: [pdfFile] })) {
-                        navigator.share({
-                            files: [pdfFile],
-                            title: 'Webtrivo Project Estimate',
-                            text: shareText
-                        })
-                        .catch((error) => {
-                            console.log('Share failed:', error);
-                            // Fallback if native share fails or is canceled
+                        const filename = `Webtrivo-${selectedServiceText.replace(/\s+/g, '-')}-Invoice.pdf`;
+                        const pdfFile = new File([pdfBlob], filename, { type: 'application/pdf' });
+                        
+                        const shareText = `Hi Webtrivo! 🚀\n\nI just designed a custom project brief on your website estimator:\n\n• Project Category: ${categoryLabel}\n• Service Needed: ${selectedServiceText}\n• Timeline Priority: ${selectedTimeframeText}\n• Guaranteed Price: ₹${exactPrice.toLocaleString('en-IN')}\n\nPlease review my attached official estimate invoice! 📈`;
+
+                        // Check if native sharing of files is supported (Web Share API Level 2)
+                        if (navigator.canShare && navigator.canShare({ files: [pdfFile] })) {
+                            navigator.share({
+                                files: [pdfFile],
+                                title: 'Webtrivo Project Estimate',
+                                text: shareText
+                            })
+                            .catch((error) => {
+                                console.log('Share failed:', error);
+                                // Fallback if native share fails or is canceled
+                                const waUrl = `https://wa.me/919229840686?text=${encodeURIComponent(shareText)}`;
+                                window.open(waUrl, '_blank');
+                            });
+                        } else {
+                            // Desktop / Fallback mode: Direct URL pre-fill
                             const waUrl = `https://wa.me/919229840686?text=${encodeURIComponent(shareText)}`;
                             window.open(waUrl, '_blank');
-                        });
-                    } else {
-                        // Desktop / Fallback mode: Direct URL pre-fill
-                        const waUrl = `https://wa.me/919229840686?text=${encodeURIComponent(shareText)}`;
-                        window.open(waUrl, '_blank');
-                    }
+                        }
+                    });
                 });
             });
         }
@@ -789,11 +838,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ── 9. DYNAMIC PILL HEADER SCROLL CONTROLLER ── */
     const header = document.querySelector('.dash-header');
     if (header) {
+        let isScrolled = false;
         const handleScroll = () => {
-            if (window.scrollY > 15) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            const currentScrolled = window.scrollY > 15;
+            if (currentScrolled !== isScrolled) {
+                isScrolled = currentScrolled;
+                if (isScrolled) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });

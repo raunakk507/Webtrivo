@@ -41,9 +41,9 @@
                       inset -2px -2px 5px rgba(45,140,255,0.06);
 
     /* Liquid Glass */
-    --liq-bg:         rgba(255,255,255,0.55);
+    --liq-bg:         rgba(255,255,255,0.72);
     --liq-border:     rgba(255,255,255,0.80);
-    --liq-blur:       blur(20px) saturate(200%);
+    --liq-blur:       blur(12px) saturate(200%);
     --liq-shadow:     0 8px 32px rgba(45,140,255,0.12),
                       0 2px 8px rgba(0,0,0,0.06),
                       inset 0 1px 0 rgba(255,255,255,0.9),
@@ -76,13 +76,7 @@ a { text-decoration: none; }
 img { display: block; max-width: 100%; }
 ::-webkit-scrollbar { display: none; }
 
-/* ── Ambient Blobs (White BG Version - Liquid Lava Lamp) ── */
-@keyframes warpBlob {
-    0%, 100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
-    33% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
-    66% { border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%; }
-}
-
+/* ── Ambient Blobs (White BG Version - Liquid Lava Lamp Optimized) ── */
 @keyframes driftBlob1 {
     0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
     33% { transform: translate(-40px, 30px) scale(1.1) rotate(120deg); }
@@ -105,28 +99,25 @@ img { display: block; max-width: 100%; }
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
-    animation: warpBlob 18s ease-in-out infinite alternate;
+    will-change: transform;
 }
 .blob-1 {
     width: 380px; height: 380px;
     background: radial-gradient(circle, rgba(45,140,255,0.18) 0%, transparent 70%);
     filter: blur(55px);
     top: -100px; right: -80px;
-    animation: warpBlob 18s ease-in-out infinite alternate, driftBlob1 25s ease-in-out infinite alternate;
 }
 .blob-2 {
     width: 300px; height: 300px;
     background: radial-gradient(circle, rgba(11,92,255,0.12) 0%, transparent 70%);
     filter: blur(65px);
     bottom: 120px; left: -80px;
-    animation: warpBlob 22s ease-in-out infinite alternate, driftBlob2 28s ease-in-out infinite alternate;
 }
 .blob-3 {
     width: 240px; height: 240px;
     background: radial-gradient(circle, rgba(45,140,255,0.10) 0%, transparent 70%);
     filter: blur(45px);
     top: 50%; right: -50px;
-    animation: warpBlob 15s ease-in-out infinite alternate, driftBlob3 20s ease-in-out infinite alternate;
 }
 
 /* ════════════════════════════════════════
@@ -141,9 +132,9 @@ img { display: block; max-width: 100%; }
     z-index: 1000;
 
     /* Liquid Glass Core */
-    background: rgba(255,255,255,0.60);
-    backdrop-filter: blur(24px) saturate(220%) brightness(1.05);
-    -webkit-backdrop-filter: blur(24px) saturate(220%) brightness(1.05);
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
 
     /* Liquid refraction border */
     border: 1px solid rgba(255,255,255,0.85);
@@ -226,9 +217,9 @@ img { display: block; max-width: 100%; }
     z-index: 1000;
 
     /* Liquid Glass Core */
-    background: rgba(255, 255, 255, 0.60);
-    backdrop-filter: blur(24px) saturate(220%) brightness(1.05);
-    -webkit-backdrop-filter: blur(24px) saturate(220%) brightness(1.05);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
 
     /* Liquid refraction border */
     border: 1px solid rgba(255, 255, 255, 0.85);
@@ -315,9 +306,9 @@ img { display: block; max-width: 100%; }
 .menu-drawer {
     position: fixed;
     inset: 0;
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     z-index: 9000;
     display: flex;
     flex-direction: column;
@@ -494,9 +485,9 @@ img { display: block; max-width: 100%; }
 
 /* ── Glass Panel (for dark sections on white bg) ── */
 .glass-panel {
-    background: rgba(255,255,255,0.65);
-    backdrop-filter: blur(18px) saturate(160%);
-    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
     border: 1px solid rgba(255,255,255,0.85);
     border-radius: 24px;
     padding: 18px 16px;
@@ -1051,15 +1042,16 @@ select.f-input option { background: white; color: var(--navy); }
    ════════════════════════════════════════ */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: 
-        opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate3d(0, 30px, 0);
     will-change: transform, opacity;
+    backface-visibility: hidden;
+    transition: 
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 .d1 { transition-delay: 0.1s; }
 .d2 { transition-delay: 0.2s; }
@@ -1635,6 +1627,97 @@ select.f-input option { background: white; color: var(--navy); }
 }
 
 
+/* ── Page Loader for Mobile ── */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    transition: opacity 0.8s ease-out;
+    color: var(--navy);
+}
+
+.loader-logo-inside {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Illusion Loader Animation */
+.illusion {
+  background: linear-gradient(90deg, #595959, #fff);
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  animation: rotation 5s linear infinite;
+}
+
+.illusion:before {
+  background: linear-gradient(270deg, #595959, #fff);
+  width: 68px;
+  height: 68px;
+  top: 6px;
+  right: 0;
+  display: block;
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+}
+
+.illusion:after {
+  background: var(--white);
+  width: 56px;
+  height: 56px;
+  top: 12px;
+  left: 12px;
+  display: block;
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 }
 
+/* ── Skeleton Loading Shimmer ── */
+.shimmer {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+}

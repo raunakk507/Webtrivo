@@ -37,18 +37,18 @@
     <!-- Open Graph (For WhatsApp/LinkedIn Previews) -->
     <meta property="og:title" content="WEBTRIVO | Websites & Product Photos for Growing Businesses">
     <meta property="og:description" content="Get a stunning website and product photos for your business. Fast delivery, affordable pricing.">
-    <meta property="og:image" content="https://webtrivo.in/assets/img/brand-logo.png">
+    <meta property="og:image" content="https://webtrivo.in/assets/img/brand-logo.webp">
     <meta property="og:url" content="https://webtrivo.in">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://webtrivo.in/assets/img/brand-logo.png">
+    <meta name="twitter:image" content="https://webtrivo.in/assets/img/brand-logo.webp">
 
     <!-- Favicon & App Icons (Crucial for Google Search Branding) -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.webp">
     <link rel="manifest" href="manifest.json">
     <link rel="canonical" href="https://webtrivo.in/">
 
@@ -60,7 +60,7 @@
       "name": "WEBTRIVO",
       "description": "High-performance web development and custom e-commerce engineering studio based in Patna, India.",
       "url": "https://webtrivo.in",
-      "logo": "https://webtrivo.in/assets/img/brand-logo.png",
+      "logo": "https://webtrivo.in/assets/img/brand-logo.webp",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-9229840686",
@@ -86,7 +86,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <!-- Libraries -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -95,25 +95,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     <div id="loader" style="background: var(--bg-primary); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO" class="loader-logo" style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 0 40px var(--accent-glow);">
-        <h2 class="brand-name" style="margin-top: 20px; letter-spacing: 0.2em; font-size: 2rem;">WEBTRIVO</h2>
+        <div class="loader-wrapper" style="position: relative; width: 100px; height: 100px; margin-bottom: 20px;">
+            <div class="illusion"></div>
+            <img src="assets/img/brand-logo.webp" alt="WEBTRIVO" class="loader-logo-inside" style="box-shadow: 0 0 40px var(--accent-glow);">
+        </div>
+        <h2 class="brand-name" style="letter-spacing: 0.2em; font-size: 2rem;">WEBTRIVO</h2>
     </div>
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <div class="floats-left">
-        <button class="float-btn theme-toggle" id="theme-toggle-float" title="Toggle Theme" style="background: var(--bg-primary); border: 1px solid var(--accent); color: var(--text-main);">
-            <i class="fa-solid fa-moon"></i>
-            <i class="fa-solid fa-sun"></i>
-        </button>
+        <label class="switch" title="Toggle Theme" style="box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-radius: 34px;">
+            <input type="checkbox" class="theme-input" id="theme-toggle-checkbox-float">
+            <span class="slider round">
+                <span class="sun-moon">
+                    <!-- moon dots -->
+                    <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    <!-- light rays -->
+                    <svg id="light-ray-1" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    <svg id="light-ray-2" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    <svg id="light-ray-3" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                </span>
+                <!-- stars -->
+                <span class="stars">
+                    <svg class="star" id="star-1" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                    <svg class="star" id="star-2" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                    <svg class="star" id="star-3" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                    <svg class="star" id="star-4" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                </span>
+                <!-- clouds -->
+                <svg class="cloud-dark" id="cloud-1" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                <svg class="cloud-dark" id="cloud-2" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                <svg class="cloud-dark" id="cloud-3" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                <svg class="cloud-light" id="cloud-4" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                <svg class="cloud-light" id="cloud-5" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                <svg class="cloud-light" id="cloud-6" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+            </span>
+        </label>
     </div>
 
     <div class="floats">
@@ -129,7 +163,7 @@
     <!-- Sticky Navbar -->
     <nav id="navbar">
         <a href="#" class="logo-container" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-            <img src="assets/img/brand-logo.png" alt="WEBTRIVO" style="height: 50px; border-radius: 10px; box-shadow: 0 0 20px var(--accent-glow);">
+            <img src="assets/img/brand-logo.webp" alt="WEBTRIVO" style="height: 50px; border-radius: 10px; box-shadow: 0 0 20px var(--accent-glow);">
             <span class="brand-name">WEBTRIVO</span>
         </a>
         <div class="nav-links" id="navLinks">
@@ -143,10 +177,35 @@
             <a href="#about">About</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
-            <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-                <i class="fa-solid fa-moon"></i>
-                <i class="fa-solid fa-sun"></i>
-            </button>
+            <label class="switch" title="Toggle Theme" style="align-self: center; display: inline-flex;">
+                <input type="checkbox" class="theme-input" id="theme-toggle-checkbox">
+                <span class="slider round">
+                    <span class="sun-moon">
+                        <!-- moon dots -->
+                        <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                        <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                        <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                        <!-- light rays -->
+                        <svg id="light-ray-1" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                        <svg id="light-ray-2" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                        <svg id="light-ray-3" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" /></svg>
+                    </span>
+                    <!-- stars -->
+                    <span class="stars">
+                        <svg class="star" id="star-1" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                        <svg class="star" id="star-2" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                        <svg class="star" id="star-3" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                        <svg class="star" id="star-4" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z" /></svg>
+                    </span>
+                    <!-- clouds -->
+                    <svg class="cloud-dark" id="cloud-1" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                    <svg class="cloud-dark" id="cloud-2" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                    <svg class="cloud-dark" id="cloud-3" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                    <svg class="cloud-light" id="cloud-4" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                    <svg class="cloud-light" id="cloud-5" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                    <svg class="cloud-light" id="cloud-6" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" /></svg>
+                </span>
+            </label>
             <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Hire Us</a>
         </div>
         <div class="hamburger" id="hamburger">
@@ -156,35 +215,28 @@
 
 
     <!-- Hero Section -->
-    <header id="hero" class="hero" style="height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <header id="hero" class="hero" style="height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: left; padding-top: 110px; box-sizing: border-box;">
         <!-- Dynamic Background Layers -->
-        <div id="hero-bg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-            <!-- Panel 1: D2C Strategic Growth (Dark Purple/Black) - START ACTIVE -->
-            <div class="hero-bg-state active" style="position: absolute; width: 100%; height: 100%; background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); opacity: 1; transition: opacity 1s ease-in-out;"></div>
-            
-            <!-- Panel 2: Industrial Pipeline (Deep Navy/Charcoal) -->
-            <div class="hero-bg-state" style="position: absolute; width: 100%; height: 100%; background: linear-gradient(135deg, #0f172a 0%, #020617 100%); opacity: 0; transition: opacity 1s ease-in-out;"></div>
-            
-            <!-- Panel 3: Strategic Discovery (Clean White Luxury) -->
-            <div class="hero-bg-state" style="position: absolute; width: 100%; height: 100%; background: radial-gradient(circle at center, #ffffff 0%, #f0f9ff 100%); opacity: 0; transition: opacity 1s ease-in-out;"></div>
+        <div id="hero-bg-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: url('https://image.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g/thumbnail.webp') no-repeat center center / cover;">
+            <video id="hero-video" autoplay loop muted playsinline preload="auto" poster="https://image.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g/thumbnail.webp" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top;"></video>
         </div>
-
-        <div class="container" style="z-index: 10; position: relative;">
+ 
+        <div class="container" style="z-index: 10; position: relative; width: 100%; text-align: left;">
             <div id="hero-badge" style="display: inline-block; padding: 8px 20px; background: var(--badge-bg); border: 1px solid var(--badge-border); border-radius: 50px; font-size: 0.8rem; margin-bottom: 30px; opacity: 0; transform: translateY(20px);">
-                🏢 <span id="state-badge" style="color: #ffd700;">PREMIUM WEB DESIGN</span>
+                🏢 <span id="state-badge" style="background: linear-gradient(135deg, #2D8CFF 0%, #00F0FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; display: inline-block;">PREMIUM WEB DESIGN</span>
             </div>
             
-            <h1 id="hero-main-title" style="font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -3px; color: var(--text-main); opacity: 0; transform: translateY(20px);">
-                <span id="state-word-1" style="color: #ffd700;">Design.</span><br>
-                <span id="state-word-2" style="color: #cbd5e1;">Build.</span><br>
-                <span id="state-word-3" style="color: #ffd700;">Launch.</span>
+            <h1 id="hero-main-title" style="font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 30px; letter-spacing: -3px; color: var(--text-main); opacity: 0; transform: translateY(20px); text-align: left;">
+                <span id="state-word-1" style="color: #ffffff;">Design.</span><br>
+                <span id="state-word-2" style="background: linear-gradient(135deg, #2D8CFF 0%, #00F0FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">Build.</span><br>
+                <span id="state-word-3" style="color: #ffffff;">Launch.</span>
             </h1>
 
-            <p id="hero-subtext" class="hero-subtext" style="max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; color: var(--text-secondary); opacity: 0; transform: translateY(20px);">
+            <p id="hero-subtext" class="hero-subtext" style="max-width: 600px; margin: 0 0 40px; font-size: 1.1rem; color: var(--text-secondary); opacity: 0; transform: translateY(20px); text-align: left;">
                 We engineer premium, high-converting digital experiences for world-class D2C brands. From custom architecture to high-performance Shopify stores.
             </p>
 
-            <div id="hero-ctas" style="display: flex; gap: 20px; justify-content: center; opacity: 0; transform: translateY(20px);">
+            <div id="hero-ctas" style="display: flex; gap: 20px; justify-content: flex-start; opacity: 0; transform: translateY(20px);">
                 <a href="#contact" class="btn btn-primary" id="hero-cta-1" style="padding: 16px 40px; border-radius: 14px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; box-shadow: var(--btn-shadow-primary);">
                     <i class="fa-solid fa-rocket"></i> Get a Free Quote
                 </a>
@@ -193,9 +245,9 @@
                 </a>
             </div>
         </div>
-
+ 
         <!-- Scroll Indicator -->
-        <div class="desktop-only" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; opacity: 0.5; letter-spacing: 2px;">
+        <div class="desktop-only" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; opacity: 0.5; letter-spacing: 2px; z-index: 3;">
             SCROLL TO DISCOVER
         </div>
     </header>
@@ -304,7 +356,7 @@
                 <!-- Case Study 1: Neon Audio -->
                 <div class="case-study-card" style="background: var(--card-bg); border-radius: 25px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.4s; box-shadow: var(--card-shadow);">
                     <div style="height: 250px; overflow: hidden;">
-                        <img src="assets/img/kingveen1.png" alt="Neon Audio - High-performance e-commerce website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img src="assets/img/kingveen1.webp" alt="Neon Audio - High-performance e-commerce website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                     </div>
                     <div style="padding: 30px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
@@ -326,7 +378,7 @@
                 <!-- Case Study 2: Artisan Home (Furniture) -->
                 <div class="case-study-card" style="background: var(--card-bg-white); border-radius: 25px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.4s; box-shadow: var(--card-shadow);">
                     <div style="height: 250px; overflow: hidden;">
-                        <img src="assets/img/artisan1.png" alt="Artisan Home - Luxury furniture website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img src="assets/img/artisan1.webp" alt="Artisan Home - Luxury furniture website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                     </div>
                     <div style="padding: 30px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
@@ -349,7 +401,7 @@
                 <!-- Case Study 4: Pure Beauty -->
                 <div class="case-study-card" style="background: var(--card-bg-white); border-radius: 25px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.4s; box-shadow: var(--card-shadow);">
                     <div style="height: 250px; overflow: hidden;">
-                        <img src="assets/img/beauty%20web.jpeg" alt="Pure Beauty - Skincare e-commerce website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img src="assets/img/beauty%20web.webp" alt="Pure Beauty - Skincare e-commerce website by Webtrivo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                     </div>
                     <div style="padding: 30px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
@@ -587,49 +639,114 @@
             </div>
             <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px;">
                 
-                <!-- Tier 1: Starter -->
-                <div class="pricing-card" style="background: var(--card-bg); padding: 45px 35px; border-radius: 35px; border: 1px solid var(--border-color); text-align: center; transition: 0.4s; box-shadow: var(--card-shadow); position: relative;">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--navy); font-weight: 700;">Starter Website</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Perfect for New Businesses</p>
-                    <div style="font-size: 3.2rem; font-weight: 800; margin-bottom: 35px; color: var(--primary); letter-spacing: -1px;">₹1,999</div>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 35px; text-align: left;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.9rem; color: var(--text-main);"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 10px;"></i>Custom 5-Page Website</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.9rem; color: var(--text-main);"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 10px;"></i>Mobile Responsive Design</li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.9rem; color: var(--text-main);"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 10px;"></i>WhatsApp & Contact Integration</li>
-                        <li style="padding: 10px 0; font-size: 0.9rem; color: var(--text-main);"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 10px;"></i>Free Hosting for 1 Year</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; border: 2px solid var(--accent); color: var(--navy) !important; font-weight: 600;">Secure Your Plan</a>
+                <!-- Tier 1: Standard Package -->
+                <div class="pricing-card" style="background: var(--card-bg); padding: 45px 35px; border-radius: 35px; border: 1px solid var(--border-color); text-align: center; transition: 0.4s; box-shadow: var(--card-shadow); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: var(--navy); font-weight: 700; min-height: 55px; display: flex; align-items: center; justify-content: center;">Web Development Standard Package</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Standard Plan</p>
+                        <div style="margin-bottom: 25px; color: var(--primary);">
+                            <span style="text-decoration: line-through; opacity: 0.55; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹10,000</span>
+                            <span style="font-size: 2.8rem; font-weight: 800; color: var(--primary); letter-spacing: -1px;">₹7,999</span>
+                            <span style="font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px; color: var(--text-secondary);">( + 18% GST ₹1440 )</span>
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 35px; text-align: left;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>5 pages Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>1 Year Free Domain Name ( .com .in .org )</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>1 Year Free Cloud Hosting</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Dynamic Website ( Premium Design )</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Admin Access</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Lifetime 24/7 Free Hosting Support</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Unlimited Images &amp; Videos Upload</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Free SSL Certificates</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>5 Free Email Id</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>SEO Friendly Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>100% Responsive Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Live Chat Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Payment Gateway Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Social Media Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Call Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>WhatsApp Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Inquiry Form</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-color-light); font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>1 Year Free Technical Support For Website</li>
+                            <li style="padding: 8px 0; font-size: 0.85rem; color: var(--text-main);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>Annual Renewal For Hosting Rs.4000</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+919229840686" class="btn btn-outline" style="width: 100%; border: 2px solid var(--accent); color: var(--navy) !important; font-weight: 600; text-align: center; text-decoration: none; display: block; padding: 12px; box-sizing: border-box;">Call Now</a>
                 </div>
 
-                <!-- Tier 2: E-Commerce (THE BUNDLE) -->
-                <div class="pricing-card" style="background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%); color: #ffffff; padding: 60px 40px; border-radius: 35px; text-align: center; transform: scale(1.05); position: relative; box-shadow: var(--shadow-accent-glow); border: 1px solid var(--accent);">
-                    <div style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #ffffff; padding: 8px 25px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; white-space: nowrap; box-shadow: var(--shadow-badge);">👑 MOST POPULAR</div>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 8px; color: var(--accent); font-weight: 700;">E-Commerce Store</h3>
-                    <p style="opacity: 0.85; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Perfect for Selling Online</p>
-                    <div style="font-size: 3.8rem; font-weight: 800; margin-bottom: 35px; color: var(--accent); letter-spacing: -2px;">₹4,999</div>
-                    <ul style="list-style: none; text-align: left; margin-bottom: 45px; opacity: 1; font-size: 0.95rem; color: #ffffff;">
-                        <li style="margin-bottom: 15px; font-weight: 600;"><i class="fa-solid fa-gem" style="color: var(--accent); margin-right: 12px; font-size: 0.8rem;"></i> FULL E-COMMERCE WEBSITE</li>
-                        <li style="margin-bottom: 15px; font-weight: 600;"><i class="fa-solid fa-gem" style="color: var(--accent); margin-right: 12px; font-size: 0.8rem;"></i> PAYMENT GATEWAY INTEGRATION</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 12px; font-size: 0.8rem;"></i> Admin Dashboard for Orders</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 12px; font-size: 0.8rem;"></i> Product Management System</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--accent); margin-right: 12px; font-size: 0.8rem;"></i> Advanced SEO & Fast Loading</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; box-shadow: var(--shadow-accent-glow); color: #ffffff !important;">Start Selling Online</a>
+                <!-- Tier 2: Premium Package (MOST POPULAR) -->
+                <div class="pricing-card" style="background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%); color: #ffffff; padding: 60px 40px; border-radius: 35px; text-align: center; transform: scale(1.05); position: relative; box-shadow: var(--shadow-accent-glow); border: 1px solid var(--accent); display: flex; flex-direction: column; justify-content: space-between; z-index: 2;">
+                    <div style="position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #ffffff; padding: 8px 25px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; white-space: nowrap; box-shadow: var(--shadow-badge); z-index: 10;">👑 MOST POPULAR</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-top: 10px; margin-bottom: 8px; color: var(--accent); font-weight: 700; min-height: 55px; display: flex; align-items: center; justify-content: center;">Web Development Premium Package</h3>
+                        <p style="opacity: 0.85; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Premium Plan</p>
+                        <div style="margin-bottom: 25px; color: var(--accent);">
+                            <span style="text-decoration: line-through; opacity: 0.65; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹20,000</span>
+                            <span style="font-size: 3.4rem; font-weight: 800; color: var(--accent); letter-spacing: -2px;">₹13,999</span>
+                            <span style="font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px; opacity: 0.85;">( + 18% GST ₹2520 )</span>
+                        </div>
+                        <ul style="list-style: none; text-align: left; margin-bottom: 45px; opacity: 1; font-size: 0.88rem; color: #ffffff; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>12 pages Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>1 Year Free Domain Name ( .com .in .org )</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>1 Year Free Cloud Hosting</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Dynamic Website ( Premium Design )</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Admin Access</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Google Search Console Setup</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Lifetime 24/7 Free Hosting Support</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Unlimited Images &amp; Videos Upload</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Free SSL Certificates</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>10 Free Email Id</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>SEO Friendly Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>100% Responsive Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Live Chat Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Payment Gateway Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Social Media Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Call Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>WhatsApp Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Inquiry Form</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Woocommerce Features</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>1 Year Free Technical Support For Website</li>
+                            <li style="padding: 8px 0; border-bottom: none;"><i class="fa-solid fa-circle-check" style="color: var(--accent); margin-right: 12px;"></i>Annual Renewal For Hosting Rs.4000</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+919229840686" class="btn btn-primary" style="width: 100%; box-shadow: var(--shadow-accent-glow); color: #ffffff !important; text-align: center; text-decoration: none; display: block; padding: 15px; box-sizing: border-box;">Call Now</a>
                 </div>
 
-                <!-- Tier 3: Full Stack App -->
-                <div class="pricing-card" style="background: linear-gradient(135deg, var(--black-gradient) 0%, var(--purple-dark) 100%); color: #ffffff; padding: 50px 40px; border-radius: 35px; border: 2px solid var(--gold-accent); text-align: center; transition: 0.4s; box-shadow: var(--shadow-gold-glow); position: relative;">
-                    <h3 style="font-size: 1.6rem; margin-bottom: 8px; color: var(--gold-accent); font-weight: 700;">Advanced Web App</h3>
-                    <p style="opacity: 0.85; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">For Complex Digital Needs</p>
-                    <div style="font-size: 3.2rem; font-weight: 800; margin-bottom: 35px; color: var(--gold-accent); letter-spacing: -1px;">₹9,999+</div>
-                    <ul style="list-style: none; text-align: left; margin-bottom: 45px; opacity: 1; font-size: 0.95rem; color: #ffffff;">
-                        <li style="margin-bottom: 15px; font-weight: 600;"><i class="fa-solid fa-gem" style="color: var(--gold-accent); margin-right: 12px; font-size: 0.8rem;"></i> PREMIUM BRAND STRATEGY</li>
-                        <li style="margin-bottom: 15px; font-weight: 600;"><i class="fa-solid fa-gem" style="color: var(--gold-accent); margin-right: 12px; font-size: 0.8rem;"></i> CUSTOM BACKEND ARCHITECTURE</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--gold-accent); margin-right: 12px; font-size: 0.8rem;"></i> Complex API Integrations</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--gold-accent); margin-right: 12px; font-size: 0.8rem;"></i> High-Performance Database</li>
-                        <li style="margin-bottom: 15px;"><i class="fa-solid fa-check" style="color: var(--gold-accent); margin-right: 12px; font-size: 0.8rem;"></i> Dedicated Development Team</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="width: 100%; background: var(--gold-accent); color: var(--black-gradient); border-radius: 15px; padding: 15px; font-weight: 900; text-decoration: none; display: block; box-shadow: var(--shadow-gold-glow); text-align: center;">Discuss Your Project</a>
+                <!-- Tier 3: Pro Package (CUSTOM) -->
+                <div class="pricing-card" style="background: linear-gradient(135deg, var(--black-gradient) 0%, var(--purple-dark) 100%); color: #ffffff; padding: 50px 40px; border-radius: 35px; border: 2px solid var(--gold-accent); text-align: center; transition: 0.4s; box-shadow: var(--shadow-gold-glow); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 8px; color: var(--gold-accent); font-weight: 700; min-height: 55px; display: flex; align-items: center; justify-content: center;">Web Development Pro Package</h3>
+                        <p style="opacity: 0.85; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">Custom Plan</p>
+                        <div style="margin-bottom: 25px; color: var(--gold-accent);">
+                            <span style="text-decoration: line-through; opacity: 0.65; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹35,000</span>
+                            <span style="font-size: 2.8rem; font-weight: 800; color: var(--gold-accent); letter-spacing: -1px;">₹25,000</span>
+                            <span style="font-size: 0.8rem; font-weight: 600; display: block; margin-top: 4px; opacity: 0.85;">( + 18% GST ₹4500 )</span>
+                        </div>
+                        <ul style="list-style: none; text-align: left; margin-bottom: 45px; opacity: 1; font-size: 0.88rem; color: #ffffff; padding: 0;">
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Pages: According to Requirement</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>1 Year Free Domain Name ( .com .in .org )</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>1 Year Free Cloud Hosting</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Dynamic Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Admin Access</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Google Search Console Setup</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Lifetime 24/7 Free Hosting Support</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Unlimited Images &amp; Videos Upload</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Free SSL Certificates</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>10 Free Email Id</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>SEO Friendly Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>100% Responsive Website</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Live Chat Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Payment Gateway Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Social Media Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Call Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>WhatsApp Button Integration</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Inquiry Form</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Woocommerce Features</li>
+                            <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.15);"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>1 Year 24/7 Free Support For Website</li>
+                            <li style="padding: 8px 0; border-bottom: none;"><i class="fa-solid fa-circle-check" style="color: var(--gold-accent); margin-right: 12px;"></i>Annual Renewal Rs.4000</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+919229840686" class="btn" style="width: 100%; background: var(--gold-accent); color: var(--black-gradient); border-radius: 15px; padding: 15px; font-weight: 900; text-decoration: none; display: block; box-shadow: var(--shadow-gold-glow); text-align: center; box-sizing: border-box;">Call Now</a>
                 </div>
 
             </div>
@@ -697,7 +814,7 @@
                 <!-- Member 1: Praveen -->
                 <div class="glass-card team-card" data-tilt>
                     <div class="team-img">
-                        <img src="assets/img/PRAVEEN(TEAM1).png" alt="Praveen - Founder & Principal Engineer">
+                        <img src="assets/img/PRAVEEN(TEAM1).webp" alt="Praveen - Founder & Principal Engineer">
                     </div>
                     <div class="team-card-content">
                         <h4 style="margin-bottom: 5px;">PRAVEEN</h4>
@@ -711,7 +828,7 @@
                 <!-- Member 2: Raunak -->
                 <div class="glass-card team-card" data-tilt>
                     <div class="team-img">
-                        <img src="assets/img/RAUNAK(TEAM2).png" alt="Raunak - Co-Founder">
+                        <img src="assets/img/RAUNAK(TEAM2).webp" alt="Raunak - Co-Founder">
                     </div>
                     <div class="team-card-content">
                         <h3>Raunak</h3>
@@ -726,7 +843,7 @@
                 <!-- Member 3: Md Arman -->
                 <div class="glass-card team-card" data-tilt>
                     <div class="team-img">
-                        <img src="assets/img/MD ARMAN (TEAM3).png" alt="Md Arman - Technical Lead">
+                        <img src="assets/img/MD ARMAN (TEAM3).webp" alt="Md Arman - Technical Lead">
                     </div>
                     <div class="team-card-content">
                         <h3>Md Arman</h3>
@@ -955,7 +1072,7 @@
         <div class="container">
             <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 60px; margin-bottom: 80px;">
                 <div class="footer-brand">
-                    <img src="assets/img/brand-logo.png" alt="WEBTRIVO" style="height: 60px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <img src="assets/img/brand-logo.webp" alt="WEBTRIVO" style="height: 60px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                     <h3 class="brand-name" style="font-size: 2rem; margin-bottom: 15px;">WEBTRIVO</h3>
                     <p style="color: var(--text-muted); max-width: 300px; line-height: 1.8;">Building digital empires through world-class design, rendering, and engineering.</p>
                 </div>
@@ -1001,9 +1118,8 @@
     </footer>
 
     <!-- Main JavaScript -->
-    
-
-<script src="assets/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 
 

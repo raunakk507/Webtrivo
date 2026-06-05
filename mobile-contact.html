@@ -7,20 +7,20 @@
     <meta name="description" content="Get in touch with Webtrivo. Send us a message or contact us on WhatsApp/Email for a premium website build.">
     <link rel="canonical" href="https://webtrivo.in/mobile-contact.html">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.webp">
     <link rel="manifest" href="manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Desktop Redirect Router -->
     <script>
@@ -41,6 +41,40 @@
 </head>
 <body class="dash-body">
 
+<!-- ── Page Loader (Skeleton Screen) ── -->
+<div id="loader" style="background: var(--white); display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 20px 16px; box-sizing: border-box; overflow: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 20000; transition: opacity 0.8s ease-out;">
+    <!-- Top Nav Header Skeleton -->
+    <div class="shimmer" style="height: 52px; border-radius: 18px; margin-bottom: 90px; background: #e2e8f0; width: 100%;"></div>
+    
+    <!-- Title Skeleton -->
+    <div style="margin-bottom: 20px;">
+        <div class="shimmer" style="height: 24px; width: 50%; border-radius: 6px; margin-bottom: 8px; background: #e2e8f0;"></div>
+        <div class="shimmer" style="height: 14px; width: 80%; border-radius: 4px; background: #e2e8f0;"></div>
+    </div>
+    
+    <!-- Info Rows Skeletons -->
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="shimmer" style="width: 32px; height: 32px; border-radius: 8px; background: #e2e8f0;"></div>
+            <div class="shimmer" style="height: 14px; width: 40%; border-radius: 4px; background: #e2e8f0;"></div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="shimmer" style="width: 32px; height: 32px; border-radius: 8px; background: #e2e8f0;"></div>
+            <div class="shimmer" style="height: 14px; width: 50%; border-radius: 4px; background: #e2e8f0;"></div>
+        </div>
+    </div>
+    
+    <!-- Form Card Skeleton -->
+    <div style="background: #ffffff; border-radius: 24px; padding: 20px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 15px; height: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="shimmer" style="height: 38px; border-radius: 10px; background: #e2e8f0;"></div>
+            <div class="shimmer" style="height: 38px; border-radius: 10px; background: #e2e8f0;"></div>
+        </div>
+        <div class="shimmer" style="height: 38px; border-radius: 10px; background: #e2e8f0;"></div>
+        <div class="shimmer" style="height: 38px; border-radius: 14px; background: #e2e8f0; width: 100%;"></div>
+    </div>
+</div>
+
 <!-- Ambient Blobs -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
@@ -48,7 +82,7 @@
 <!-- DASH HEADER -->
 <header class="dash-header">
     <a href="mobile.html" class="dash-brand">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <img src="assets/img/brand-logo.webp" alt="WEBTRIVO logo">
         <span>WEBTRIVO</span>
     </a>
     <div class="dash-header-right">
@@ -252,7 +286,7 @@
 
 <!-- FOOTER -->
 <footer class="mobile-footer">
-    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <img src="assets/img/brand-logo.webp" alt="WEBTRIVO">
     <h3>WEBTRIVO</h3>
     <p>Building digital empires through world-class design, rendering, and engineering.</p>
     <div class="footer-socials">

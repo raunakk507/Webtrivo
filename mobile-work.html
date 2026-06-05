@@ -7,20 +7,20 @@
     <meta name="description" content="Portfolio of our premium e-commerce, Next.js, and luxury web design projects built to scale.">
     <link rel="canonical" href="https://webtrivo.in/mobile-work.html">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.webp">
     <link rel="manifest" href="manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Desktop Redirect Router -->
     <script>
@@ -41,6 +41,38 @@
 </head>
 <body class="dash-body">
 
+<!-- ── Page Loader (Skeleton Screen) ── -->
+<div id="loader" style="background: var(--white); display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 20px 16px; box-sizing: border-box; overflow: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 20000; transition: opacity 0.8s ease-out;">
+    <!-- Top Nav Header Skeleton -->
+    <div class="shimmer" style="height: 52px; border-radius: 18px; margin-bottom: 90px; background: #e2e8f0; width: 100%;"></div>
+    
+    <!-- Title Skeleton -->
+    <div style="margin-bottom: 20px;">
+        <div class="shimmer" style="height: 24px; width: 55%; border-radius: 6px; margin-bottom: 8px; background: #e2e8f0;"></div>
+        <div class="shimmer" style="height: 14px; width: 85%; border-radius: 4px; background: #e2e8f0;"></div>
+    </div>
+    
+    <!-- Filter Pills Skeletons -->
+    <div style="display: flex; gap: 8px; margin-bottom: 22px; overflow: hidden;">
+        <div class="shimmer" style="height: 32px; width: 60px; border-radius: 30px; background: #e2e8f0; flex-shrink: 0;"></div>
+        <div class="shimmer" style="height: 32px; width: 90px; border-radius: 30px; background: #e2e8f0; flex-shrink: 0;"></div>
+        <div class="shimmer" style="height: 32px; width: 90px; border-radius: 30px; background: #e2e8f0; flex-shrink: 0;"></div>
+        <div class="shimmer" style="height: 32px; width: 80px; border-radius: 30px; background: #e2e8f0; flex-shrink: 0;"></div>
+    </div>
+    
+    <!-- Project Card Skeleton -->
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; gap: 15px; height: 320px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+        <!-- Large Image Block -->
+        <div class="shimmer" style="width: 100%; height: 160px; background: #e2e8f0;"></div>
+        <!-- Card Body -->
+        <div style="padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px;">
+            <div class="shimmer" style="height: 16px; width: 35%; border-radius: 50px; background: #e2e8f0;"></div>
+            <div class="shimmer" style="height: 18px; width: 65%; border-radius: 4px; background: #e2e8f0;"></div>
+            <div class="shimmer" style="height: 12px; width: 95%; border-radius: 4px; background: #e2e8f0;"></div>
+        </div>
+    </div>
+</div>
+
 <!-- Ambient Blobs -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
@@ -48,7 +80,7 @@
 <!-- DASH HEADER -->
 <header class="dash-header">
     <a href="mobile.html" class="dash-brand">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <img src="assets/img/brand-logo.webp" alt="WEBTRIVO logo">
         <span>WEBTRIVO</span>
     </a>
     <div class="dash-header-right">
@@ -86,7 +118,7 @@
         <!-- Neon Audio -->
         <div class="swipe-slide reveal" data-category="ecommerce">
             <div class="project-card">
-                <img class="project-thumb" src="assets/img/kingveen1.png" alt="Neon Audio" loading="lazy" onerror="this.style.display='none'">
+                <img class="project-thumb" src="assets/img/kingveen1.webp" alt="Neon Audio" loading="lazy" onerror="this.style.display='none'">
                 <div class="project-body">
                     <span class="project-badge">Custom E-Commerce</span>
                     <h4 class="project-title">Neon Audio: High-Speed Store</h4>
@@ -112,7 +144,7 @@
         <!-- Artisan Home -->
         <div class="swipe-slide reveal d1" data-category="ecommerce">
             <div class="project-card">
-                <img class="project-thumb" src="assets/img/artisan1.png" alt="Artisan Home" loading="lazy" onerror="this.style.display='none'">
+                <img class="project-thumb" src="assets/img/artisan1.webp" alt="Artisan Home" loading="lazy" onerror="this.style.display='none'">
                 <div class="project-body">
                     <span class="project-badge">E-Commerce Engine</span>
                     <h4 class="project-title">Artisan Home: Luxury Selling</h4>
@@ -138,7 +170,7 @@
         <!-- Pure Beauty -->
         <div class="swipe-slide reveal d2" data-category="app">
             <div class="project-card">
-                <img class="project-thumb" src="assets/img/beauty web.jpeg" alt="Pure Beauty" loading="lazy" onerror="this.style.display='none'">
+                <img class="project-thumb" src="assets/img/beauty web.webp" alt="Pure Beauty" loading="lazy" onerror="this.style.display='none'">
                 <div class="project-body">
                     <span class="project-badge">Beauty Tech · Next.js</span>
                     <h4 class="project-title">Pure Beauty: Skincare Ecosystem</h4>
@@ -164,7 +196,7 @@
         <!-- OpenSky Pro -->
         <div class="swipe-slide reveal d3" data-category="landing">
             <div class="project-card">
-                <img class="project-thumb" src="assets/img/Screenshot 2026-05-10 194138.png" alt="OpenSky Pro" loading="lazy" onerror="this.style.display='none'">
+                <img class="project-thumb" src="assets/img/Screenshot 2026-05-10 194138.webp" alt="OpenSky Pro" loading="lazy" onerror="this.style.display='none'">
                 <div class="project-body">
                     <span class="project-badge">Luxury Real Estate</span>
                     <h4 class="project-title">OpenSky Pro: Property Tech</h4>
@@ -200,7 +232,7 @@
 
 <!-- FOOTER -->
 <footer class="mobile-footer">
-    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <img src="assets/img/brand-logo.webp" alt="WEBTRIVO">
     <h3>WEBTRIVO</h3>
     <p>Building digital empires through world-class design, rendering, and engineering.</p>
     <div class="footer-socials">

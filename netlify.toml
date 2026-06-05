@@ -1,0 +1,25 @@
+# ── NETLIFY CDN HEADERS CONFIGURATION ──
+
+# Custom HTTP headers for public assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, no-transform, immutable"
+    X-Content-Type-Options = "nosniff"
+
+# Configure cache-control for web fonts
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, no-transform, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, no-transform, immutable"
+
+# Ensure HTML files are revalidated immediately so visitors get instant updates
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

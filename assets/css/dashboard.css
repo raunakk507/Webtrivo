@@ -49,8 +49,8 @@
     background-size: 200% 200%;
     animation: liquidHeaderRefract 8s ease infinite;
 
-    backdrop-filter: blur(24px) saturate(190%) brightness(1.03);
-    -webkit-backdrop-filter: blur(24px) saturate(190%) brightness(1.03);
+    backdrop-filter: blur(12px) saturate(160%) brightness(1.03);
+    -webkit-backdrop-filter: blur(12px) saturate(160%) brightness(1.03);
 
     /* Clean glass outline with colorful bottom/right prisms */
     border: 1px solid rgba(255, 255, 255, 0.65);
@@ -104,8 +104,8 @@
         rgba(255, 255, 255, 0.32) 100%
     );
     background-size: 200% 200%;
-    backdrop-filter: blur(28px) saturate(210%) brightness(1.04);
-    -webkit-backdrop-filter: blur(28px) saturate(210%) brightness(1.04);
+    backdrop-filter: blur(12px) saturate(160%) brightness(1.04);
+    -webkit-backdrop-filter: blur(12px) saturate(160%) brightness(1.04);
     box-shadow:
         0 8px 24px rgba(45, 140, 255, 0.14),
         0 2px 6px rgba(0, 0, 0, 0.02),
@@ -684,9 +684,9 @@
     display: inline-flex;
     align-items: center;
 
-    background: rgba(255,255,255,0.78);
-    backdrop-filter: blur(28px) saturate(230%) brightness(1.05);
-    -webkit-backdrop-filter: blur(28px) saturate(230%) brightness(1.05);
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(12px) saturate(180%) brightness(1.05);
 
     border: 1.2px solid rgba(45, 140, 255, 0.8);
     border-radius: 50px;
@@ -780,10 +780,8 @@
     width: 100%;
     padding: 6px 0;
     margin: 4px 0;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(45, 140, 255, 0.04);
 }
@@ -868,6 +866,64 @@
 }
 .progress-ring-circle {
     transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* ── custom performance loader animation ── */
+.loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation: pulsOut 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 1rem rgba(34, 197, 94, 0.4));
+}
+
+.loader:before {
+  width: 100%;
+  padding-bottom: 100%;
+  box-shadow: inset 0 0 0 1rem #22c55e;
+  animation-name: pulsIn;
+}
+
+.loader:after {
+  width: calc(100% - 2rem);
+  padding-bottom: calc(100% - 2rem);
+  box-shadow: 0 0 0 0 #22c55e;
+}
+
+@keyframes pulsIn {
+  0% {
+    box-shadow: inset 0 0 0 1rem #22c55e;
+    opacity: 1;
+  }
+
+  50%, 100% {
+    box-shadow: inset 0 0 0 0 #22c55e;
+    opacity: 0;
+  }
+}
+
+@keyframes pulsOut {
+  0%, 50% {
+    box-shadow: 0 0 0 0 #22c55e;
+    opacity: 0;
+  }
+
+  100% {
+    box-shadow: 0 0 0 1rem #22c55e;
+    opacity: 1;
+  }
 }
 .speed-score-box {
     position: absolute;

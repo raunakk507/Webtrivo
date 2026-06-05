@@ -3,68 +3,94 @@
 // Super Stable Init Logic
 // ==========================================
 
+let heroAnimated = false;
+function animateHeroIn() {
+    if (heroAnimated) return;
+    heroAnimated = true;
+    console.log("Snappy Hero Animation Triggered");
+    if (typeof gsap !== 'undefined') {
+        gsap.to('#hero-badge', { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
+        gsap.to('#hero-main-title', { opacity: 1, y: 0, duration: 0.8, delay: 0.1, ease: "power2.out" });
+        gsap.to('#hero-subtext', { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power2.out" });
+        gsap.to('#hero-ctas', { opacity: 1, y: 0, duration: 0.8, delay: 0.3, ease: "power2.out" });
+    }
+    if (typeof startHeroCycle === 'function') {
+        startHeroCycle();
+    }
+}
+
 function hideLoader() {
     const loader = document.getElementById('loader');
     if (loader) {
-        loader.style.transition = 'opacity 0.8s ease-out';
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-            if (typeof ScrollTrigger !== 'undefined') {
-                ScrollTrigger.refresh();
-                console.log('ScrollTrigger refreshed after loader hide');
-            }
-        }, 800);
-        console.log('Loader hidden successfully');
+        loader.style.pointerEvents = 'none'; // Release scroll and clicks immediately
+        if (loader.style.display !== 'none') {
+            loader.style.transition = 'opacity 0.4s ease-out';
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                    console.log('ScrollTrigger refreshed after loader hide');
+                }
+            }, 400);
+            console.log('Loader hidden successfully');
+        }
     }
+    animateHeroIn();
 }
 
 // Start Everything function
 function startWebtrivo() {
       console.log("Starting WEBTRIVO initialization...");
-      try { initLenis(); } catch(e) { console.error(e); }
       try { initSiteLogic(); } catch(e) { console.error(e); }
-      hideLoader();
       
-      // Post-load failsafe refresh after layout has fully settled
-      setTimeout(() => {
-          if (typeof ScrollTrigger !== 'undefined') {
-              ScrollTrigger.refresh();
-              console.log('ScrollTrigger post-load settled refresh executed');
-          }
-      }, 1000);
+      // Failsafe: If loader still exists after 1.5 seconds, hide it
+      setTimeout(hideLoader, 1500);
   }
 
 // THE FIX: Check if page is already loaded
-if (document.readyState === 'complete') {
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
     startWebtrivo();
 } else {
-    window.addEventListener('load', startWebtrivo);
+    document.addEventListener('DOMContentLoaded', startWebtrivo);
 }
 
-// Failsafe: If loader still exists after 2 seconds, kill it
-setTimeout(hideLoader, 2000);
+window.addEventListener('load', hideLoader);
 
 
 // ==========================================
 // 1. Lenis Smooth Scrolling Engine
 // ==========================================
 let lenis;
-function initLenis() {
-    try {
-        if (typeof Lenis === 'undefined') return;
+try {
+    if (typeof Lenis !== 'undefined') {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
         lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
-            smooth: true,
+            gestureDirection: 'vertical',
+            smooth: !isTouch,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
         });
         lenis.on('scroll', () => { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update(); });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-        console.log('Lenis initialized');
-    } catch (e) { console.error('Lenis error:', e); }
-}
+        
+        if (typeof gsap !== 'undefined') {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0, 0);
+            console.log('Lenis initialized with GSAP Ticker globally');
+        } else {
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+            console.log('Lenis initialized with fallback RAF globally');
+        }
+    }
+} catch (e) { console.error('Lenis global init error:', e); }
 
 // ==========================================
 // 2. Three.js 'White Luxury / Glass Orbs' Engine
@@ -82,6 +108,43 @@ function initThreeJS() {
 // ==========================================
 function initSiteLogic() {
     try {
+        // Setup HLS video background
+        const video = document.getElementById('hero-video');
+        if (video) {
+            const videoSrc = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
+            
+            // Listen for play/canplay events to hide loader early
+            const onVideoReady = () => {
+                console.log("Hero video can play, hiding loader.");
+                hideLoader();
+            };
+            video.addEventListener('canplay', onVideoReady);
+            video.addEventListener('playing', onVideoReady);
+            
+            if (video.readyState >= 3) {
+                onVideoReady();
+            }
+
+            if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+                const hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    maxBufferLength: 3,
+                    maxMaxBufferLength: 6,
+                    maxBufferSize: 5 * 1000 * 1000
+                });
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+            
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => console.log("Video autoplay blocked or delayed:", err));
+            }
+        }
+
         // if (typeof lucide !== 'undefined') lucide.createIcons();
 
         window.addEventListener('scroll', () => {
@@ -178,8 +241,7 @@ function initSiteLogic() {
 // 3D Laptop Frame Player Engine
 // Laptop player engine removed
 
-// Failsafe: Hide loader if stuck after 3 seconds
-setTimeout(hideLoader, 3000);
+// Failsafe: Timeout handled globally
 
 
 
@@ -257,30 +319,30 @@ setTimeout(hideLoader, 3000);
                 badge: "PREMIUM WEB DESIGN",
                 title: ["Design.", "Build.", "Launch."],
                 subtext: "We build beautiful, high-converting Full-Stack websites for ambitious D2C brands.",
-                colors: ["#ffd700", "#ffffff", "#ffd700"], 
-                badgeColor: "#ffd700",
-                subtextColor: "rgba(255,255,255,0.8)",
-                shadow: "0 10px 40px rgba(255, 215, 0, 0.3)",
+                colors: ["#ffffff", "linear-gradient(135deg, #2D8CFF 0%, #00F0FF 100%)", "#ffffff"], 
+                badgeColor: "linear-gradient(135deg, #2D8CFF 0%, #00F0FF 100%)",
+                subtextColor: "rgba(255,255,255,0.85)",
+                shadow: "0 0 20px rgba(45, 140, 255, 0.25)",
                 bgIndex: 0 // Dark Purple
             },
             {
                 badge: "HIGH-SPEED PERFORMANCE",
                 title: ["Fast.", "Secure.", "Scalable."],
                 subtext: "Websites engineered to load instantly, providing a seamless experience for your customers.",
-                colors: ["#ffffff", "#38bdf8", "#ffffff"], 
-                badgeColor: "#38bdf8",
-                subtextColor: "rgba(255,255,255,0.7)",
-                shadow: "0 10px 30px rgba(56, 189, 248, 0.2)",
+                colors: ["#ffffff", "linear-gradient(135deg, #FFD700 0%, #FF8A00 100%)", "#ffffff"], 
+                badgeColor: "linear-gradient(135deg, #FFD700 0%, #FF8A00 100%)",
+                subtextColor: "rgba(255,255,255,0.85)",
+                shadow: "0 0 20px rgba(255, 215, 0, 0.25)",
                 bgIndex: 1 // Deep Navy
             },
             {
                 badge: "E-COMMERCE OPTIMIZED",
                 title: ["Engage.", "Convert.", "Grow."],
                 subtext: "More than just design—we engineer digital storefronts optimized to turn visitors into buyers.",
-                colors: ["#0f172a", "#38bdf8", "#0f172a"], 
-                badgeColor: "#0f172a",
-                subtextColor: "#64748b",
-                shadow: "none",
+                colors: ["#ffffff", "linear-gradient(135deg, #2D8CFF 0%, #7000FF 100%)", "#ffffff"], 
+                badgeColor: "linear-gradient(135deg, #2D8CFF 0%, #7000FF 100%)",
+                subtextColor: "rgba(255,255,255,0.85)",
+                shadow: "0 0 20px rgba(45, 140, 255, 0.25)",
                 bgIndex: 2 // Luxury White
             }
         ];
@@ -312,12 +374,32 @@ setTimeout(hideLoader, 3000);
             tl.to([heroMainTitleEl, heroSubtextEl, heroBadgeEl], { x: 100, opacity: 0, duration: 0.5, stagger: 0.05, ease: "power2.in" })
               .call(() => {
                   badgeTextEl.textContent = state.badge;
-                  badgeTextEl.style.color = state.badgeColor;
+                  if (state.badgeColor.includes('gradient')) {
+                      badgeTextEl.style.background = state.badgeColor;
+                      badgeTextEl.style.webkitBackgroundClip = 'text';
+                      badgeTextEl.style.webkitTextFillColor = 'transparent';
+                      badgeTextEl.style.display = 'inline-block';
+                  } else {
+                      badgeTextEl.style.background = 'none';
+                      badgeTextEl.style.webkitBackgroundClip = 'initial';
+                      badgeTextEl.style.webkitTextFillColor = 'initial';
+                      badgeTextEl.style.color = state.badgeColor;
+                  }
                   heroSubtextEl.textContent = state.subtext;
                   heroSubtextEl.style.color = state.subtextColor;
                   heroWords.forEach((w, i) => {
                       w.textContent = state.title[i];
-                      w.style.color = state.colors[i];
+                      if (state.colors[i].includes('gradient')) {
+                          w.style.background = state.colors[i];
+                          w.style.webkitBackgroundClip = 'text';
+                          w.style.webkitTextFillColor = 'transparent';
+                          w.style.display = 'inline-block';
+                      } else {
+                          w.style.background = 'none';
+                          w.style.webkitBackgroundClip = 'initial';
+                          w.style.webkitTextFillColor = 'initial';
+                          w.style.color = state.colors[i];
+                      }
                       w.style.textShadow = state.shadow;
                       w.style.webkitTextStroke = state.bgIndex === 2 ? "none" : "0.5px rgba(255,255,255,0.1)"; // No outline on light theme
                   });
@@ -327,32 +409,22 @@ setTimeout(hideLoader, 3000);
               .to([heroMainTitleEl, heroSubtextEl, heroBadgeEl], { x: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power3.out" });
         }
 
-        // Initialize Hero on Load
-        window.addEventListener('load', () => {
-            // Initial Animation
-            gsap.to('#hero-badge', { opacity: 1, y: 0, duration: 1.2, delay: 0.5 });
-            gsap.to('#hero-main-title', { opacity: 1, y: 0, duration: 1.2, delay: 0.7 });
-            gsap.to('#hero-subtext', { opacity: 1, y: 0, duration: 1.2, delay: 0.9 });
-            gsap.to('#hero-ctas', { opacity: 1, y: 0, duration: 1.2, delay: 1.1 });
-
-            // Start Cycle
+        // Initialize Hero State Slideshow Cycle when hero is ready
+        let intervalStarted = false;
+        function startHeroCycle() {
+            if (intervalStarted) return;
+            intervalStarted = true;
             setInterval(updateHeroState, 5000);
-
-            // Close Loader
-            const loader = document.getElementById('loader');
-            if(loader) {
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    setTimeout(() => loader.style.display = 'none', 500);
-                }, 1000);
-            }
-        });
+        }
 
 /* === BLOCK 4: AUTO-SCROLL TICKERS, ACCORDIONS & THEMES === */
         // ==========================================
         // UNIFIED SMOOTH TICKER AUTO-SCROLL
         // ==========================================
         function initMobileAutoScroll() {
+            // Only initialize scroll tickers on mobile/tablet viewports
+            if (window.innerWidth > 992) return;
+
             const tickerSelectors = [
                 '#case-studies-grid', 
                 '.why-grid', 
@@ -364,11 +436,18 @@ setTimeout(hideLoader, 3000);
                 const container = document.querySelector(selector);
                 if (!container) return;
 
+                // Only scroll if container actually overflows
+                if (container.scrollWidth <= container.clientWidth) return;
+
                 let isPaused = false;
                 let exactScroll = 0;
                 const speed = 0.5; // Slightly slower, ultra-smooth pixel increment
 
                 function tick() {
+                    if (window.innerWidth > 992) {
+                        container.scrollLeft = 0;
+                        return; // Stop animation loop when resized to desktop
+                    }
                     if (!isPaused) {
                         exactScroll += speed;
                         container.scrollLeft = Math.floor(exactScroll);
@@ -392,30 +471,34 @@ setTimeout(hideLoader, 3000);
             });
         }
 
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleFloat = document.getElementById('theme-toggle-float');
+        // Theme Toggle Logic (Animated Switch)
+        const themeInputs = document.querySelectorAll('.theme-input');
         const body = document.body;
 
-        function toggleTheme() {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        // Initialize checkbox states based on the current theme
+        const currentTheme = body.getAttribute('data-theme') || localStorage.getItem('theme') || 'light';
+        themeInputs.forEach(input => {
+            input.checked = (currentTheme === 'dark');
+        });
+
+        function handleThemeChange(e) {
+            const isChecked = e.target.checked;
+            const newTheme = isChecked ? 'dark' : 'light';
             
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             
-            // Animation effect for icons
-            const icons = document.querySelectorAll('.theme-toggle i');
-            icons.forEach(icon => {
-                icon.style.transform = 'rotate(360deg)';
-                setTimeout(() => {
-                    icon.style.transform = 'rotate(0deg)';
-                }, 500);
+            // Synchronize all theme toggle inputs on the page
+            themeInputs.forEach(input => {
+                if (input !== e.target) {
+                    input.checked = isChecked;
+                }
             });
         }
 
-        if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-        if (themeToggleFloat) themeToggleFloat.addEventListener('click', toggleTheme);
+        themeInputs.forEach(input => {
+            input.addEventListener('change', handleThemeChange);
+        });
 
         // 3. FAQ ACCORDION LOGIC
         const faqItems = document.querySelectorAll('.faq-item');
@@ -462,6 +545,8 @@ setTimeout(hideLoader, 3000);
    Premium individual card reveal system
    ════════════════════════════════════════ */
 (function initScrollAnimations() {
+    // Disabled to remove column scrolling appear effects
+    return;
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
     gsap.registerPlugin(ScrollTrigger);
 

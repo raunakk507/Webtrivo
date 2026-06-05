@@ -7,20 +7,20 @@
     <meta name="description" content="Affordable and transparent pricing for Shopify, e-commerce storefronts, and full-stack web applications.">
     <link rel="canonical" href="https://webtrivo.in/mobile-pricing.html">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.webp">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48x48.webp">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96x96.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-192x192.webp">
     <link rel="manifest" href="manifest.json">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <!-- Desktop Redirect Router -->
     <script>
@@ -41,6 +41,35 @@
 </head>
 <body class="dash-body">
 
+<!-- ── Page Loader (Skeleton Screen) ── -->
+<div id="loader" style="background: var(--white); display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; padding: 20px 16px; box-sizing: border-box; overflow: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 20000; transition: opacity 0.8s ease-out;">
+    <!-- Top Nav Header Skeleton -->
+    <div class="shimmer" style="height: 52px; border-radius: 18px; margin-bottom: 90px; background: #e2e8f0; width: 100%;"></div>
+    
+    <!-- Title Skeleton -->
+    <div style="margin-bottom: 25px;">
+        <div class="shimmer" style="height: 24px; width: 50%; border-radius: 6px; margin-bottom: 8px; background: #e2e8f0;"></div>
+        <div class="shimmer" style="height: 14px; width: 85%; border-radius: 4px; background: #e2e8f0;"></div>
+    </div>
+    
+    <!-- Vertical Pricing Cards Skeletons -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Pricing Card 1 -->
+        <div style="background: #ffffff; border-radius: 26px; padding: 28px 22px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 15px; height: 240px; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+            <div>
+                <div class="shimmer" style="height: 18px; width: 40%; border-radius: 4px; margin-bottom: 6px; background: #e2e8f0;"></div>
+                <div class="shimmer" style="height: 12px; width: 60%; border-radius: 4px; background: #e2e8f0;"></div>
+            </div>
+            <div class="shimmer" style="height: 38px; width: 120px; border-radius: 8px; background: #e2e8f0;"></div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div class="shimmer" style="height: 12px; width: 90%; border-radius: 4px; background: #e2e8f0;"></div>
+                <div class="shimmer" style="height: 12px; width: 80%; border-radius: 4px; background: #e2e8f0;"></div>
+                <div class="shimmer" style="height: 12px; width: 85%; border-radius: 4px; background: #e2e8f0;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Ambient Blobs -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
@@ -48,7 +77,7 @@
 <!-- DASH HEADER -->
 <header class="dash-header">
     <a href="mobile.html" class="dash-brand">
-        <img src="assets/img/brand-logo.png" alt="WEBTRIVO logo">
+        <img src="assets/img/brand-logo.webp" alt="WEBTRIVO logo">
         <span>WEBTRIVO</span>
     </a>
     <div class="dash-header-right">
@@ -74,65 +103,107 @@
     <h2 class="sec-title reveal">Simple, Clear <span class="hl">Pricing</span></h2>
     <p class="sec-desc reveal">No hidden fees. Pick a plan that fits your budget and goals.</p>
 
-    <!-- Starter Website -->
+    <!-- Standard Plan -->
     <div class="pricing-hero-card pricing-starter reveal" style="margin-top:22px;">
-        <div class="pricing-name">Starter Website</div>
-        <div class="pricing-sub">Perfect for New Businesses</div>
-        <span class="pricing-amount"><sup>₹</sup>1,999</span>
+        <div class="pricing-name">Web Development Standard Package</div>
+        <div class="pricing-sub">Standard Plan</div>
+        <div class="pricing-amount" style="line-height: 1.15; margin: 14px 0 18px;">
+            <span style="text-decoration: line-through; opacity: 0.55; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹10,000</span>
+            <sup>₹</sup>7,999
+            <span style="font-size: 0.72rem; font-weight: 600; display: block; margin-top: 4px; opacity: 0.85; letter-spacing: 0.5px;">( + 18% GST ₹1440 )</span>
+        </div>
         <ul class="pricing-feats">
-            <li><i class="fa-solid fa-circle-check"></i> Custom 5-Page Static Website</li>
-            <li><i class="fa-solid fa-circle-check"></i> Mobile-First Responsive Design</li>
-            <li><i class="fa-solid fa-circle-check"></i> SEO Structured Schema Markup</li>
-            <li><i class="fa-solid fa-circle-check"></i> Interactive Contact Form Integration</li>
-            <li><i class="fa-solid fa-circle-check"></i> Netlify/Vercel Fast Hosting Setup</li>
+            <li><i class="fa-solid fa-circle-check"></i> 5 pages Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Domain Name ( .com .in .org )</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Cloud Hosting</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic Website ( Premium Design )</li>
+            <li><i class="fa-solid fa-circle-check"></i> Admin Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Lifetime 24/7 Free Hosting Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Images &amp; Videos Upload</li>
+            <li><i class="fa-solid fa-circle-check"></i> Free SSL Certificates</li>
+            <li><i class="fa-solid fa-circle-check"></i> 5 Free Email Id</li>
+            <li><i class="fa-solid fa-circle-check"></i> SEO Friendly Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> 100% Responsive Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Live Chat Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Payment Gateway Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Social Media Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Call Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> WhatsApp Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Inquiry Form</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Technical Support For Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Annual Renewal For Hosting Rs.4000</li>
         </ul>
-        <a href="mobile-contact.html" class="btn-white-pill"><i class="fa-solid fa-rocket"></i> Get Started</a>
+        <a href="tel:+919229840686" class="btn-white-pill"><i class="fa-solid fa-phone"></i> Call Now</a>
     </div>
 
-    <!-- Shopify Pro Store (Flagship) -->
-    <div class="pricing-hero-card reveal d1" style="margin-top:22px;">
-        <div class="pricing-name">Shopify Pro Store</div>
-        <div class="pricing-sub">Best for E-Commerce Growth</div>
-        <span class="pricing-amount"><sup>₹</sup>4,999</span>
+    <!-- Premium Plan -->
+    <div class="pricing-hero-card pricing-webapp reveal d1" style="margin-top:22px;">
+        <div class="pricing-name">Web Development Premium Package</div>
+        <div class="pricing-sub">Premium Plan</div>
+        <div class="pricing-amount" style="line-height: 1.15; margin: 14px 0 18px;">
+            <span style="text-decoration: line-through; opacity: 0.55; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹20,000</span>
+            <sup>₹</sup>13,999
+            <span style="font-size: 0.72rem; font-weight: 600; display: block; margin-top: 4px; opacity: 0.85; letter-spacing: 0.5px;">( + 18% GST ₹2520 )</span>
+        </div>
         <ul class="pricing-feats">
-            <li><i class="fa-solid fa-circle-check"></i> Custom Shopify OS 2.0 Theme</li>
-            <li><i class="fa-solid fa-circle-check"></i> Checkout &amp; Payment Gateway Setup</li>
-            <li><i class="fa-solid fa-circle-check"></i> High-Speed Core Optimization</li>
-            <li><i class="fa-solid fa-circle-check"></i> Mobile-First Responsive Design</li>
-            <li><i class="fa-solid fa-circle-check"></i> Priority Developer Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> 12 pages Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Domain Name ( .com .in .org )</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Cloud Hosting</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic Website ( Premium Design )</li>
+            <li><i class="fa-solid fa-circle-check"></i> Admin Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Google Search Console Setup</li>
+            <li><i class="fa-solid fa-circle-check"></i> Lifetime 24/7 Free Hosting Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Images &amp; Videos Upload</li>
+            <li><i class="fa-solid fa-circle-check"></i> Free SSL Certificates</li>
+            <li><i class="fa-solid fa-circle-check"></i> 10 Free Email Id</li>
+            <li><i class="fa-solid fa-circle-check"></i> SEO Friendly Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> 100% Responsive Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Live Chat Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Payment Gateway Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Social Media Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Call Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> WhatsApp Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Inquiry Form</li>
+            <li><i class="fa-solid fa-circle-check"></i> Woocommerce Features</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Technical Support For Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Annual Renewal For Hosting Rs.4000</li>
         </ul>
-        <a href="mobile-contact.html" class="btn-white-pill"><i class="fa-solid fa-rocket"></i> Scale Your Store</a>
+        <a href="tel:+919229840686" class="btn-white-pill"><i class="fa-solid fa-phone"></i> Call Now</a>
     </div>
 
-    <!-- Full Web App (New Tier) -->
-    <div class="pricing-hero-card pricing-webapp reveal d2" style="margin-top:22px;">
-        <div class="pricing-name">Full Web App</div>
-        <div class="pricing-sub">Ultimate Dynamic Solution</div>
-        <span class="pricing-amount"><sup>₹</sup>10,000</span>
+    <!-- Custom Plan -->
+    <div class="pricing-hero-card pricing-enterprise reveal d2" style="margin-top:22px;">
+        <div class="pricing-name">Web Development Pro Package</div>
+        <div class="pricing-sub">Custom Plan</div>
+        <div class="pricing-amount" style="line-height: 1.15; margin: 14px 0 18px;">
+            <span style="text-decoration: line-through; opacity: 0.55; font-size: 1.4rem; font-weight: 600; margin-right: 8px;">₹35,000</span>
+            <sup>₹</sup>25,000
+            <span style="font-size: 0.72rem; font-weight: 600; display: block; margin-top: 4px; opacity: 0.85; letter-spacing: 0.5px;">( + 18% GST ₹4500 )</span>
+        </div>
         <ul class="pricing-feats">
-            <li><i class="fa-solid fa-circle-check"></i> Custom React / Next.js Front-End</li>
-            <li><i class="fa-solid fa-circle-check"></i> Secure Node.js Backend API</li>
-            <li><i class="fa-solid fa-circle-check"></i> Database Integration (MongoDB/SQL)</li>
-            <li><i class="fa-solid fa-circle-check"></i> Full Admin Panel &amp; CMS Panel</li>
-            <li><i class="fa-solid fa-circle-check"></i> Dynamic API &amp; Gateway Integrations</li>
-            <li><i class="fa-solid fa-circle-check"></i> Ultra-Fast Performance (99+ Score)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Pages: According to Requirement</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Domain Name ( .com .in .org )</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year Free Cloud Hosting</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Admin Access</li>
+            <li><i class="fa-solid fa-circle-check"></i> Google Search Console Setup</li>
+            <li><i class="fa-solid fa-circle-check"></i> Lifetime 24/7 Free Hosting Support</li>
+            <li><i class="fa-solid fa-circle-check"></i> Unlimited Images &amp; Videos Upload</li>
+            <li><i class="fa-solid fa-circle-check"></i> Free SSL Certificates</li>
+            <li><i class="fa-solid fa-circle-check"></i> 10 Free Email Id</li>
+            <li><i class="fa-solid fa-circle-check"></i> SEO Friendly Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> 100% Responsive Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Live Chat Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Payment Gateway Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Social Media Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Call Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> WhatsApp Button Integration</li>
+            <li><i class="fa-solid fa-circle-check"></i> Inquiry Form</li>
+            <li><i class="fa-solid fa-circle-check"></i> Woocommerce Features</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1 Year 24/7 Free Support For Website</li>
+            <li><i class="fa-solid fa-circle-check"></i> Annual Renewal Rs.4000</li>
         </ul>
-        <a href="mobile-contact.html" class="btn-white-pill"><i class="fa-solid fa-rocket"></i> Launch Your App</a>
-    </div>
-
-    <!-- Custom Enterprise -->
-    <div class="pricing-hero-card pricing-enterprise reveal d3" style="margin-top:22px;">
-        <div class="pricing-name">Custom Enterprise</div>
-        <div class="pricing-sub">Tailored Scale &amp; Performance</div>
-        <span class="pricing-amount"><sup>₹</sup>Custom</span>
-        <ul class="pricing-feats">
-            <li><i class="fa-solid fa-circle-check"></i> Dedicated Developer Support &amp; SLA</li>
-            <li><i class="fa-solid fa-circle-check"></i> Multi-Tenant SaaS Architecture</li>
-            <li><i class="fa-solid fa-circle-check"></i> Cloud Infrastructure (AWS / GCP Setup)</li>
-            <li><i class="fa-solid fa-circle-check"></i> Custom API Integrations &amp; Workflows</li>
-            <li><i class="fa-solid fa-circle-check"></i> Professional Agency Retainer Plans</li>
-        </ul>
-        <a href="mobile-contact.html" class="btn-white-pill"><i class="fa-solid fa-message"></i> Discuss Your Project</a>
+        <a href="tel:+919229840686" class="btn-white-pill"><i class="fa-solid fa-phone"></i> Call Now</a>
     </div>
 </section>
 
@@ -199,7 +270,7 @@
 
 <!-- FOOTER -->
 <footer class="mobile-footer">
-    <img src="assets/img/brand-logo.png" alt="WEBTRIVO">
+    <img src="assets/img/brand-logo.webp" alt="WEBTRIVO">
     <h3>WEBTRIVO</h3>
     <p>Building digital empires through world-class design, rendering, and engineering.</p>
     <div class="footer-socials">
