@@ -638,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const categoryLabel = activeType === 'website' ? 'Landing Page' : activeType === 'shopify' ? 'Shopify Store' : 'Custom Web App';
             const messageText = `Hi Webtrivo! 🚀\n\nI just designed a custom project brief on your website estimator:\n\n• Project Category: ${categoryLabel}\n• Service Needed: ${selectedServiceText}\n• Timeline Priority: ${selectedTimeframeText}\n• My Guaranteed Price: ₹${exactPrice.toLocaleString('en-IN')}\n\nPlease get in touch to discuss details and start building! 📈`;
             
-            whatsappCTA.href = `https://wa.me/919229840686?text=${encodeURIComponent(messageText)}`;
+            whatsappCTA.href = `https://wa.me/916206213382?text=${encodeURIComponent(messageText)}`;
         };
 
         // Dynamic interactive Share Guide Drawer logic to visually instruct user on selection
@@ -734,12 +734,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             .catch((error) => {
                                 console.log('Share failed:', error);
                                 // Fallback if native share fails or is canceled
-                                const waUrl = `https://wa.me/919229840686?text=${encodeURIComponent(shareText)}`;
+                                const waUrl = `https://wa.me/916206213382?text=${encodeURIComponent(shareText)}`;
                                 window.open(waUrl, '_blank');
                             });
                         } else {
                             // Desktop / Fallback mode: Direct URL pre-fill
-                            const waUrl = `https://wa.me/919229840686?text=${encodeURIComponent(shareText)}`;
+                            const waUrl = `https://wa.me/916206213382?text=${encodeURIComponent(shareText)}`;
                             window.open(waUrl, '_blank');
                         }
                     });
@@ -884,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', () => {
                 const msg = btn.dataset.msg;
                 const encodedMsg = encodeURIComponent(msg);
-                const waUrl = `https://wa.me/919229840686?text=${encodedMsg}`;
+                const waUrl = `https://wa.me/916206213382?text=${encodedMsg}`;
                 window.open(waUrl, '_blank');
                 closeWADrawer();
             });

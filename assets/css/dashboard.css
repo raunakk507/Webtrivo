@@ -124,11 +124,10 @@
     transform: scale(1.02);
 }
 .dash-brand img {
-    height: 28px;
-    border-radius: 50%; /* Make brand icon beautifully round like a bubble */
-    box-shadow: 0 0 12px rgba(45,140,255,0.35);
-    border: 1px solid rgba(255,255,255,0.8);
-    object-fit: cover;
+    height: 32px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(45,140,255,0.25);
+    object-fit: contain;
 }
 .dash-brand span {
     font-family: 'Outfit', sans-serif;
@@ -630,6 +629,7 @@
     height: 36px;
     margin: 0 auto 8px;
     border-radius: 8px;
+    object-fit: contain;
 }
 .dash-footer h3 {
     font-family: 'Outfit', sans-serif;
@@ -1349,8 +1349,10 @@
 .wa-agent-logo {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
-    border: 2px solid white;
+    border-radius: 8px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 12px rgba(45,140,255,0.2);
 }
 .wa-agent-text {

@@ -982,7 +982,8 @@ select.f-input option { background: white; color: var(--navy); }
     height: 36px;
     margin: 0 auto 8px;
     border-radius: 8px;
-    box-shadow: 0 0 12px rgba(45,140,255,0.3);
+    box-shadow: 0 0 12px rgba(45,140,255,0.15);
+    object-fit: contain;
 }
 .mobile-footer h3 {
     font-family: 'Outfit', sans-serif;
@@ -1615,7 +1616,8 @@ select.f-input option { background: white; color: var(--navy); }
     right: 18px !important;
 }
 .dash-brand img {
-    height: 34px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
 }
 .dash-brand span {
     font-size: 1.05rem !important;
@@ -1645,14 +1647,15 @@ select.f-input option { background: white; color: var(--navy); }
 }
 
 .loader-logo-inside {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
+    object-fit: contain;
 }
 
 /* Illusion Loader Animation */

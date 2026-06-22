@@ -61,36 +61,36 @@
 
 [data-theme="dark"] {
     /* OPTIONAL DARK THEME */
-    --bg-primary: #020617;
-    --bg-secondary: #0f172a;
-    --bg-secondary-rgb: 15, 23, 42;
-    --bg-accent: #1e293b;
+    --bg-primary: #000000;
+    --bg-secondary: #000000;
+    --bg-secondary-rgb: 0, 0, 0;
+    --bg-accent: #0d0d0d;
     --primary: #ffd700;
-    --secondary: #0f172a;
+    --secondary: #000000;
     --accent: #ffd700; 
     --accent-gradient: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
     --accent-glow: rgba(255, 215, 0, 0.2);
     --navy: #f8fafc;
-    --navy-dark: #020617;
-    --navy-mid: #0f172a;
+    --navy-dark: #000000;
+    --navy-mid: #000000;
     --text-main: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-light: #94a3b8;
     --text-muted: #94a3b8;
-    --white: #0f172a;
-    --hero-bg: #020617;
-    --card-bg: #0f172a;
-    --card-bg-white: #0f172a;
-    --card-bg-glass: rgba(15, 23, 42, 0.7);
-    --border-color: #1e293b;
-    --border-color-light: #1e293b;
-    --nav-bg: rgba(2, 6, 23, 0.9);
+    --white: #0a0a0a;
+    --hero-bg: #000000;
+    --card-bg: #0a0a0a;
+    --card-bg-white: #0a0a0a;
+    --card-bg-glass: rgba(10, 10, 10, 0.7);
+    --border-color: #1a1a1a;
+    --border-color-light: #1a1a1a;
+    --nav-bg: rgba(0, 0, 0, 0.9);
     --nav-scrolled-bg: linear-gradient(120deg, 
-        rgba(15, 23, 42, 0.50) 0%, 
-        rgba(15, 23, 42, 0.25) 25%, 
+        rgba(10, 10, 10, 0.50) 0%, 
+        rgba(10, 10, 10, 0.25) 25%, 
         rgba(255, 215, 0, 0.05) 50%, 
-        rgba(15, 23, 42, 0.25) 75%, 
-        rgba(15, 23, 42, 0.50) 100%
+        rgba(10, 10, 10, 0.25) 75%, 
+        rgba(10, 10, 10, 0.50) 100%
     );
     --nav-scrolled-border: rgba(255, 255, 255, 0.15);
     --nav-scrolled-border-bottom: rgba(255, 215, 0, 0.3);
@@ -415,14 +415,15 @@
         }
 
         .loader-logo-inside {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
+            object-fit: contain;
         }
 
         /* Illusion Loader Animation */
